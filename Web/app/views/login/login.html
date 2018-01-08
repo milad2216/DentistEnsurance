@@ -1,0 +1,45 @@
+﻿<div>
+    <div class="bg-img">
+
+    </div>
+    <div class="cls-content-sm">
+        <div class="heder-login">
+            <span>ورود سیستم</span>
+        </div>
+        <div class="body-login">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="input-label">نــام کاربــری</label>
+                    <input id="txt-user-name" ng-model="username" type="text" placeholder="نام کاربری" class="form-control">
+                </div>
+            </div>
+            <div class="form-group user">
+                <div class="input-group">
+                    <label class="input-label">کلـــمه عبــور</label>
+                    <input id="txt-password" ng-model="password" type="password" placeholder="کلمه عبور" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label style="line-height: 27px;">
+                    <img id="img_reminder" src="/Content/images/unchecked.png" />
+                    <input id="ck_reminder" ng-model="reminder" style="display:none" type="checkbox" />مرا بخاطر داشته باش
+                </label>
+
+            </div>
+            <div class="form-group">
+                <a id="loginBtn" class="dk-button-blue" ng-click="checkAuthenticate()">
+                    ورود به سیستم
+                </a>
+            </div>
+            <div class="form-group">
+                <span class="lbl-error"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader">
+        <img src="/Content/images/preloader.gif" />
+    </div>
+</div>
+   
+

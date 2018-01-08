@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="/Scripts/core/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/core/angular.min.js"></script>
+    <script src="/Scripts/core/angular-ui-router.min.js"></script>
+    <script src="/Scripts/core/angular-sanitize.min.js"></script>
+    <script src="/Scripts/bower/angular-translate-loader-partial/angular-translate-loader-partial.min.js"></script>
+    <script src="/Scripts/bower/blockui/angular-block-ui.js"></script>
+    <script src="/Scripts/bower/bootstrap/bootstrap.min.js"></script>
+    <script src="/Scripts/bower/bootstrap/ui-bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="/Scripts/bower/date/JalaliDate.js"></script>
+    <script src="/Scripts/bower/date/moment.min.js"></script>
+    <script src="/Scripts/bower/date/moment-jalaali.js"></script>
+    <script src="/Scripts/bower/kendo/kendo.web.min.js"></script>
+    <script src="/Scripts/bower/kendo/cultures/kendo.fa-IR.js"></script>
+    <script src="/Scripts/bower/kendo/kendo.angular.min.js"></script>
+    <script src="/Scripts/core/modernizr.js"></script>
+    <link href="/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap/css/Bootstrap-rtl.css" rel="stylesheet" />
+    <link href="/Content/kendoUI/kendo.common.min.css" rel="stylesheet" />
+    <link href="/Content/kendoUI/kendo.default.min.css" rel="stylesheet" />
+    <link href="/Content/kendoUI/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="/Content/blockui/angular-block-ui.min.css" rel="stylesheet" />
+    <link href="/Content/FortAwesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/main/index.css" rel="stylesheet" />
+    <link href="/Content/main/font.css" rel="stylesheet" />
+    <link href="/Content/main/login.css" rel="stylesheet" />
+    <script data-main="/app/main.js" src="/Scripts/core/require.js"></script>
+</head>
+<body onload="" ng-controller="indexController" ng-init="initializeController()" ng-cloak>
+    <div class="main-container">
+        <master ng-if="statusforlayout">
+
+        </master>
+        <div ng-if="statusforlogin" ui-view="login"></div>
+    </div>
+    <div id="panel-footer">
+
+    </div>
+</body>
+</html>

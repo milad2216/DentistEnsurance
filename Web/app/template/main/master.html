@@ -1,0 +1,142 @@
+﻿<nav class="navbar-inner masthead">
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li style="" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="cart-box"><i class="fa fa-user"></i></span> {{userApp.FullName}}
+                    <span class="angle-down">
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="glyphicon glyphicon-cog"></i>تنظیمات</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-camera"></i>تغییر عکس</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-lock"></i>تغییر کلمه عبور </a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-off"></i>خروج </a></li>
+                </ul>
+            </li>
+            <li class="active menu-page"><a href="#">صفحه اصلی</a></li>
+            <li class="active menu-page"><a href="#">جستجوی</a></li>
+            <li class="menu-page"><a href="#about">تنظیمات</a></li>
+            <li class="menu-page"><a href="#about">گزارشات</a></li>
+            <li class="item-position">
+                <span class="yekan13" style="color:#fff;margin-left:5px;">سمت کاربر: </span>
+                <div class="btn-group">
+                    <button type="button" style="min-width:160px;" class="btn btn-default">{{userApp.PositionName}}</button>
+                    <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="positionItem in userApp.Positions"><a>{{positionItem.Name}}</a></li>
+
+                    </ul>-->
+                </div>
+            </li>
+            <li class="item-position">
+                <span class="menu-popover" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="
+                    <div id='menu-app'>
+                        <ul>
+                            <li>
+                                <a ui-sref='baseInfoMenus' href='/baseInfoMenus'>
+                                    <i class='glyphicon glyphicon-cog'></i>
+                                    <span class='glyphicon-class'>اطلاعات پایه</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref='securityMenus' href='/securityMenus'>
+                                    <i class='glyphicon glyphicon-cog'></i>
+                                    <span class='glyphicon-class'>راهبری </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref='formsMenus' href='/formsMenus'>
+                                    <i class='glyphicon glyphicon-cog'></i>
+                                    <span class='glyphicon-class'>فرم ها</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref='secretariatMenus' href='/secretariatMenus'>
+                                    <i class='glyphicon glyphicon-cog'></i>
+                                    <span class='glyphicon-class'>مدیریت رزروها</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a ui-sref='settingDocMenus' href='/settingDocMenus'>
+                                    <i class='glyphicon glyphicon-cog'></i>
+                                    <span class='glyphicon-class'>تنظیمات دندانپزشکی </span>
+                                </a>
+                            </li>
+                            <li>
+                                <i class='glyphicon glyphicon-cog'></i>
+                                <span class='glyphicon-class'>گزارشات سیستم حقوق</span>
+                            </li>
+                            <li>
+                                <i class='glyphicon glyphicon-cog'></i>
+                                <span class='glyphicon-class'>جستجوی</span>
+                            </li>
+                            <li>
+                                <i class='glyphicon glyphicon-cog'></i>
+                                <span class='glyphicon-class'>مدیریت درخواست ها</span>
+                            </li>
+                            <li>
+                                <i class='glyphicon glyphicon-cog'></i>
+                                <span class='glyphicon-class'>مدیریت کاربران</span>
+                            </li>
+                        </ul>
+                    </div>">
+                    <i class="glyphicon glyphicon-th"></i> <span class="menu-popover-title yekan13">زیر سیستم ها</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="page-content">
+    <div class="mail-body">
+        <div class="mail-list ">
+            <div class="avatar">
+                <img class="box-shadow-heder img-circle" src="/Content/images/thumb_default.jpg" />
+            </div>
+            <div class="header-title"> {{userApp.PositionName}} </div>
+            <div class="col-sm-12" style="padding:0px">
+                <div class="list-group">
+                    <a ui-sref="cartable" class="list-group-item "><i class="glyphicon glyphicon-inbox"></i>رزروی‌ها<span class="badge font-yekan13">4</span></a>
+                    <a ui-sref="role" class="list-group-item"><i class="glyphicon glyphicon-share"></i>پیگیری<span class="badge font-yekan13">34</span></a>
+                    <a ui-sref="compostSearch" class="list-group-item"><i class="glyphicon glyphicon-edit "></i>در انتظار تایید<span class="badge font-yekan13">53</span></a>
+                    <a ui-sref="recycleSearch" class="list-group-item active"><i class="glyphicon glyphicon-trash"></i>تایید نشده<span class="badge font-yekan13">5</span></a>
+                    <a ui-sref="position" class="list-group-item"><i class="glyphicon glyphicon-comment"></i>پیغام<span class="badge font-yekan13">5</span></a>
+                    <a ui-sref="unit" class="list-group-item"><i class="glyphicon glyphicon-book"></i>اعتبار</a>
+                </div>
+            </div>
+            <hr />
+            <div class="col-sm-12" style="padding:0px">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="header-title"> اطلاعات کاربر </div>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">ویزیت شده<span class="badge font-yekan13">4</span></li>
+                        <li class="list-group-item">منتظر ویزیت<span class="badge font-yekan13">2</span></li>
+                        <li class="list-group-item">درانتظار تایید اداره<span class="badge font-yekan13">0</span></li>
+                        <li class="list-group-item">تایید نشده<span class="badge font-yekan13">3</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-widget-header">{{applicationModule}}</div>
+        <div class="cantent-view" ui-view></div>
+    </div>
+</div>
+<script>
+
+    $('[data-toggle="popover"]').popover({ animation: true, html: true, trigger: 'manual' }).click(function (e) {
+        $(this).popover('toggle');
+        e.stopPropagation();
+    });
+    $('html').click(function (e) {
+        $('[data-toggle="popover"]').popover('hide');
+    });
+</script>

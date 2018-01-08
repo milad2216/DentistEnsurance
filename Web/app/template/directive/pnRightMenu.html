@@ -1,0 +1,34 @@
+﻿<div class="sidebar" id="sidebar">
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button ng-repeat="shortcut in shortcutMenus" class="btn btn-small {{shortcut.Style}}" ng-click="getPage(shortcut.Action)" title="{{shortcut.Title}}">
+                <i class="icon-signal"></i>
+            </button>
+
+            <!--<button class="btn btn-small btn-info">
+                <i class="icon-pencil"></i>
+            </button>
+
+            <button class="btn btn-small btn-warning">
+                <i class="icon-group"></i>
+            </button>
+
+            <button class="btn btn-small btn-danger">
+                <i class="icon-cogs"></i>
+            </button>-->
+        </div>
+    </div><!--#sidebar-shortcuts-->
+    <ul class="nav nav-list">
+        <li class="active" ng-repeat="menu in menus">
+            <a ng-click="getPage(menu.Action)">
+                <i class="{{menu.Style}}"></i>
+                <span class="menu-text"> {{menu.Title}} </span>
+            </a>
+        </li>
+
+    </ul>
+
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left"></i>
+    </div>
+</div>
