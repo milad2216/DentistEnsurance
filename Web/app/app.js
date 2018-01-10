@@ -24,7 +24,7 @@
                     templateUrl: '/app/views/main/home.html',
                     controllerUrl: '/app/controller/main/homeController.js',
 
-                })) .state('login', angularAMD.route(
+                })).state('login', angularAMD.route(
                     {
                         title: 'تست',
                         url: '/login',
@@ -39,40 +39,41 @@
     });
 
     app.run(["$browser", "$rootScope", "$state", "$stateParams", function ($browser, $rootScope, $state, $stateParams) {
-        
+
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-            
+
         });
         $rootScope.$on("$stateChangeSuccess", function (event, toState) {
-            
+
             $rootScope.applicationModule = toState.title;
         });
     }]);
 
 
     app.config(["$locationProvider", '$provide', function ($locationProvider, $provide) {
-        
+
 
     }]);
 
     var indexController = function ($scope, $rootScope, $http, $state, $stateParams, $sce, blockUI) {
         debugger
-        $scope.statusforlayout = true;
-        $scope.statusforlogin = false;
+        $rootScope.statusforlayout = false;
+        $rootScope.statusforlogin = true;
+        if ($rootScope.statusforlayout)
+            $state.go("home");
+        else if ($rootScope.statusforlogin)
+            $state.go("login");
         $scope.initializeController = function () {
-            if ($scope.statusforlayout)
-                $state.go("home");
-            else if ($scope.statusforlogin)
-                $state.go("login");
+
         }
     };
-    
+
     indexController.$inject = ['$scope', '$rootScope', '$http', '$state', '$stateParams', '$sce', 'blockUI'];
 
     app.controller("indexController", indexController);
 
     app.bootstrap = function () {
-         angularAMD.bootstrap(app, false);
+        angularAMD.bootstrap(app, false);
     };
     return app;
 });

@@ -5,8 +5,11 @@ define(['app'], function (app) {
         function ($scope, $rootScope, $state) {
             debugger
             $scope.checkAuthenticate = function () {
-                $scope.statusforlayout = true;
-                $scope.statusforlogin = false;
+                //
+                debugger
+                $rootScope.statusforlayout = true;
+                $rootScope.statusforlogin = false;
+                $state.go("home");
             }
         }]);
 });

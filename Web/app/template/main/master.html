@@ -129,14 +129,11 @@
         <div class="content-widget-header">{{applicationModule}}</div>
         <div class="cantent-view" ui-view></div>
     </div>
+    <script>
+    debugger
+    $(function () {
+        debugger
+       
+    })
+    </script>
 </div>
-<script>
-
-    $('[data-toggle="popover"]').popover({ animation: true, html: true, trigger: 'manual' }).click(function (e) {
-        $(this).popover('toggle');
-        e.stopPropagation();
-    });
-    $('html').click(function (e) {
-        $('[data-toggle="popover"]').popover('hide');
-    });
-</script>
