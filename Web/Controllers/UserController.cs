@@ -18,6 +18,7 @@ namespace Web.Controllers
             Service = service;
         }
 
+        [HttpGet]
         public HttpResponseMessage Read()
         {
             IEnumerable<User> result = Service.GetAll().OrderByDescending(p => p.ID);

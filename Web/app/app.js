@@ -16,6 +16,7 @@
         app._stateProvider = $stateProvider;
         $urlRouterProvider.otherwise('login');
         $stateProvider
+            
             .state('home', angularAMD.route(
                 {
                     url: '/home',
@@ -37,6 +38,14 @@
                         }
                     }))
     });
+
+    app.config(["$locationProvider", '$provide', function ($locationProvider, $provide) {
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+        $locationProvider.hashPrefix('!');
+    }]);
 
     app.run(["$browser", "$rootScope", "$state", "$stateParams", function ($browser, $rootScope, $state, $stateParams) {
 

@@ -23,5 +23,21 @@ namespace Web
         {
             HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
         }
+
+        private const string ROOT_DOCUMENT = "~/app/index.html";
+        protected void Application_BeginRequest(Object sender, EventArgs e)
+        {
+            string url = Request.Url.LocalPath;
+            if (url.Contains("api"))
+                return;
+            if (url.ToLower() == "/rd")
+                return;
+            if (url.ToLower().Contains("routedebugger"))
+                return;
+            if (url.ToLower().Contains("openid"))
+                return;
+            if (!System.IO.File.Exists(Context.Server.MapPath(url)))
+                Context.RewritePath(ROOT_DOCUMENT);
+        }
     }
 }
