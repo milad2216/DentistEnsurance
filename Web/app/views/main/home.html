@@ -1,8 +1,40 @@
-﻿<form>
-    {{title}}
+﻿<kendo-grid options="mainGridOptions">
+    <div k-detail-template>
+        <kendo-tabstrip>
+            <ul>
+                <li class="k-state-active">خدمات</li>
+                <li>اطلاعات تماس</li>
+            </ul>
+            <div>
+                <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
+            </div>
+            <div>
+                <ul class="contact-info-form">
+                    <li><label>کشور:</label> <input class="k-textbox" ng-model="dataItem.Country" /></li>
+                    <li><label>شهر:</label> <input class="k-textbox" ng-model="dataItem.City" /></li>
+                    <li><label>آدرس:</label> {{dataItem.Address}}</li>
+                    <li><label>تلفن:</label> {{dataItem.HomePhone}}</li>
+                </ul>
+            </div>
+        </kendo-tabstrip>
+    </div>
+</kendo-grid>
+<style>
+    .contact-info-form {
+        list-style-type: none;
+        margin: 30px 0;
+        padding: 0;
+    }
 
-  <input type="button" ng-click="get()" />
-</form>
+        .contact-info-form li {
+            margin: 10px 0;
+        }
 
-
+        .contact-info-form label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+        }
+</style>
 

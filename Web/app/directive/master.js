@@ -1,8 +1,9 @@
 ﻿define(['angularAMD'], function (app) {
     debugger
-    app.directive('master', ['$parse', '$state', 'dataService', '$compile', function ($parse, $state, dataService, $compile) {
+    app.directive('master', ['$parse', '$state', 'dataService', '$compile', '$rootScope', function ($parse, $state, dataService, $compile, $rootScope) {
         return {
             restrict: 'E',
+            transclude: true,
             scope: {
                 buttons: "=?"
             },
@@ -22,6 +23,17 @@
 
                 $scope.getPage = function (action) {
                     $state.go(action);
+                }
+
+                $scope.logoff = function(){
+
+                    dataService.getData('/api/Security/LogOff', {}).then(function (response) {
+
+                            $rootScope.statusforlayout = false;
+                            $rootScope.statusforlogin = true;
+                            $state.go("login");
+
+                    });
                 }
             },
             compile: function (tElem, tAttrs) {

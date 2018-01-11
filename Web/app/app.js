@@ -57,8 +57,17 @@
 
     var indexController = function ($scope, $rootScope, $http, $state, $stateParams, $sce, blockUI) {
         debugger
-        $rootScope.statusforlayout = false;
-        $rootScope.statusforlogin = true;
+
+        $http.post('/api/Security/IsAuthenticated', {}).success(function (response) {
+            if (response.Authenticated)
+            {
+                $rootScope.statusforlayout = true;
+                $rootScope.statusforlogin = false;
+            } else {
+                $rootScope.statusforlayout = false;
+                $rootScope.statusforlogin = true;
+            }
+        });
         if ($rootScope.statusforlayout)
             $state.go("home");
         else if ($rootScope.statusforlogin)

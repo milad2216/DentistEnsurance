@@ -13,7 +13,7 @@
                     <li><a href="#"><i class="glyphicon glyphicon-camera"></i>تغییر عکس</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-lock"></i>تغییر کلمه عبور </a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-off"></i>خروج </a></li>
+                    <li><a ng-click="logoff()"><i class="glyphicon glyphicon-off"></i>خروج </a></li>
                 </ul>
             </li>
             <li class="active menu-page"><a href="#">صفحه اصلی</a></li>
@@ -127,13 +127,8 @@
     </div>
     <div class="content">
         <div class="content-widget-header">{{applicationModule}}</div>
-        <div class="cantent-view" ui-view></div>
+        <div class="cantent-view" ui-view>
+            <div ng-transclude></div>
+        </div>
     </div>
-    <script>
-    debugger
-    $(function () {
-        debugger
-       
-    })
-    </script>
 </div>

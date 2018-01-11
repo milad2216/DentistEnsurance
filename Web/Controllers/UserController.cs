@@ -17,5 +17,15 @@ namespace Web.Controllers
         {
             Service = service;
         }
+
+        public HttpResponseMessage Read()
+        {
+            IEnumerable<User> result = Service.GetAll().OrderByDescending(p => p.ID);
+
+            //result = result.Skip(skip).Take(take);
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
     }
 }

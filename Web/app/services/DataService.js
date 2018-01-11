@@ -1,5 +1,5 @@
 ﻿define(['angularAMD'], function (app) {
-    app.service('dataService', ['$state', '$http', '$q',  '$rootScope', function ($state, $http, $q, $rootScope) {
+    app.service('dataService', ['$state', '$http', '$q', '$rootScope', 'blockUI', function ($state, $http, $q, $rootScope, blockUI) {
        
         return {
         
@@ -38,6 +38,7 @@
                 var then = this;
                 $http.post(url, data).success(function (response) {
                     deferred.resolve(response);
+                    blockUI.stop();
                 });
                 return deferred.promise;
             },
