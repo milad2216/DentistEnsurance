@@ -25,7 +25,7 @@ namespace Web.Controllers
 
             //result = result.Skip(skip).Take(take);
 
-            return Request.CreateResponse(HttpStatusCode.OK, result);
+            return Request.CreateResponse(HttpStatusCode.OK,new { total = result.Count(), data=result } );
         }
 
     }

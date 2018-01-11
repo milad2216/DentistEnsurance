@@ -2,16 +2,33 @@
     debugger
     app.register.controller('homeController', ['$scope', '$rootScope', '$state',
         function ($scope, $rootScope, $state) {
-            $scope.title="milad majid"
+            $scope.title = "milad majid"
             debugger
             $scope.get = function () {
                 $state.go("milad");
             }
+
             $scope.mainGridOptions = {
+                // autoBind:false,
                 dataSource: {
-                    type: "odata",
+                    // type: "odata",
                     transport: {
-                        read: "/api/User/Read"
+                        read: {
+                            type: "GET",
+                            url: "/api/User/Read",
+                            dataType: "json",
+                        },
+                    },
+                    schema: {
+                        parse: function (response) {
+                            debugger;
+                            return response;
+                        },
+                        data: "data",
+                        total: "total"
+                    },
+                    requestEnd: function (e) {
+                        debugger;
                     },
                     pageSize: 5,
                     serverPaging: true,
@@ -19,7 +36,8 @@
                 },
                 sortable: true,
                 pageable: true,
-                dataBound: function () {
+                dataBound: function (e) {
+                    debugger
                     this.expandRow(this.tbody.find("tr.k-master-row").first());
                 },
                 columns: [{
@@ -31,14 +49,13 @@
                     title: "نام خانوادگی",
                     width: "120px"
                 }, {
-                    field: "کشور",
+                    field: "NationalNo",
+                    title: "کد ملی",
                     width: "120px"
                 }, {
-                    field: "شهر",
+                    field: "PersonalNo",
+                    title: "کد پرسنلی",
                     width: "120px"
-                }, {
-                    field: "Title",
-                    title: "عنوان"
                 }]
             };
 
@@ -47,7 +64,7 @@
                     dataSource: {
                         type: "odata",
                         transport: {
-                            read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                            read: "/api/User/Read"
                         },
                         serverPaging: true,
                         serverSorting: true,
