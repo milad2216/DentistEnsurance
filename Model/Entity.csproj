@@ -67,6 +67,7 @@
     <Compile Include="AccessControl\Menu.cs" />
     <Compile Include="AccessControl\User.cs" />
     <Compile Include="BaseEntityClass.cs" />
+    <Compile Include="Common\QueryInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

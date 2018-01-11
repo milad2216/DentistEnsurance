@@ -1,4 +1,5 @@
 ﻿using Entity.AccessControl;
+using Entity.Common;
 using Service.AccessControl;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Read()
+        public HttpResponseMessage Read([FromUri]QueryInfo query)
         {
             IEnumerable<User> result = Service.GetAll().OrderByDescending(p => p.ID);
 
