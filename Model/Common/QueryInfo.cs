@@ -12,7 +12,6 @@ namespace Entity.Common
         public int Skip { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }
-        public int top { get; set; }
         public SortInfo[] Sort { get; set; }
         public FilterInfo Filter { get; set; }
     }

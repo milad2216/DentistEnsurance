@@ -1,12 +1,9 @@
 ﻿define(['app'], function (app) {
     debugger
-    app.register.controller('homeController', ['$scope', '$rootScope', '$state',
-        function ($scope, $rootScope, $state) {
+    app.register.controller('homeController', ['$scope', '$rootScope', '$state', '$http',
+        function ($scope, $rootScope, $state, $http) {
             $scope.title = "milad majid"
             debugger
-            $scope.get = function () {
-                $state.go("milad");
-            }
             $scope.refresh = function (e) {
                 $scope.mainGrid.dataSource.read();
             }
@@ -15,11 +12,46 @@
                 dataSource: {
                     type: "odata",
                     transport: {
-                        read: {
-                            type: "GET",
-                            url: "/api/Personal/Read",
-                            dataType: "json"
+                        //read: function (options) {
+                        //    return {
+                        //        type: "POST",
+                        //        url: "/api/Personal/Read",
+                        //        dataType: "json",
+                        //        data: {
+                        //            query : options.data
+                        //        }
+                        //    }
+                        //},
+                        read: function (e) {//You can get the current page, pageSize etc off `e`.
+                            //var requestData = {
+                            //    page: e.data.page,
+                            //    PageSize: e.data.pageSize,
+                            //    Take: e.data.take,
+                            //    Skip: e.data.skip,
+                            //    Sort: e.data.sort,
+                            //    Filter: e.data.filter
+                            //};
+                            console.log(e);
+                            $http({ method: 'POST', url: '/api/Personal/Read', data: e.data }).
+                                success(function (data, status, headers, config) {
+                                    e.success(data);
+                                    //console.log(data.Data);
+                                }).
+                                error(function (data, status, headers, config) {
+                                    alert('something went wrong');
+                                    console.log(status);
+                                });
                         },
+                        parameterMap: function (data, type) {
+                            if (type === "read") {
+                                // send take as "$top" and skip as "$skip"
+                                debugger;
+                                return {
+                                    $top: data.take,
+                                    $skip: data.skip
+                                }
+                            }
+                        }
                     },
                     schema: {
                         parse: function (response) {

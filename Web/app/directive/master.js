@@ -35,6 +35,10 @@
 
                     });
                 }
+
+                $scope.profile = function () {
+                    $state.go("profile");
+                }
             },
             compile: function (tElem, tAttrs) {
                 debugger

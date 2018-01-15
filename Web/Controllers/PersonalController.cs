@@ -20,8 +20,9 @@ namespace Web.Controllers
             Service = service;
         }
 
-        [HttpGet]
-        public HttpResponseMessage Read([FromUri]QueryInfo query)
+        //[HttpGet]
+        [HttpPost]
+        public HttpResponseMessage Read(QueryInfo query)
         {
             var dataSourceResult = Service.GetAll().Where(p=>p.ID == p.ParentId).OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<PersonalViewModel>(query);
 
