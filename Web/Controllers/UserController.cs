@@ -22,15 +22,5 @@ namespace Web.Controllers
             Service = service;
         }
 
-        [HttpGet]
-        public HttpResponseMessage Read(QueryInfo query)
-        {
-            var dataSourceResult = Service.GetAll().OrderByDescending(p => p.ID).ToMyDataSourceResult(query);
-
-            //result = result.Skip(skip).Take(take);
-
-            return Request.CreateResponse(HttpStatusCode.OK, new { total = dataSourceResult.Count(), data = dataSourceResult });
-        }
-
     }
 }

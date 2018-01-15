@@ -1,24 +1,24 @@
-﻿<kendo-grid options="mainGridOptions">
+﻿<div kendo-grid="mainGrid" options="mainGridOptions">
     <div k-detail-template>
         <kendo-tabstrip>
             <ul>
-                <li class="k-state-active">خدمات</li>
-                <li>اطلاعات تماس</li>
+                <li class="k-state-active">زیرمجموعه</li>
+                <li>اطلاعات کارمند</li>
             </ul>
             <div>
                 <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
             </div>
             <div>
                 <ul class="contact-info-form">
-                    <li><label>کشور:</label> <input class="k-textbox" ng-model="dataItem.Country" /></li>
-                    <li><label>شهر:</label> <input class="k-textbox" ng-model="dataItem.City" /></li>
+                    <li><label>سقف خدمات قابل ارایه به ریال:</label> {{dataItem.NationalNo}}</li>
+                    <li><label>خدمات استفاده شده به ریال:</label> {{dataItem.PersonalNo}}</li>
                     <li><label>آدرس:</label> {{dataItem.Address}}</li>
                     <li><label>تلفن:</label> {{dataItem.HomePhone}}</li>
                 </ul>
             </div>
         </kendo-tabstrip>
     </div>
-</kendo-grid>
+</div kendo-grid>
 <style>
     .contact-info-form {
         list-style-type: none;
@@ -32,7 +32,7 @@
 
         .contact-info-form label {
             display: inline-block;
-            width: 100px;
+            width: 200px;
             text-align: right;
             font-weight: bold;
         }

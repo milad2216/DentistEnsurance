@@ -55,9 +55,6 @@
     <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.5.5\lib\net45\CommonServiceLocator.dll</HintPath>
-    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\packages\Telerik\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -707,6 +704,7 @@
     <Compile Include="Infra\DataSourceUtil.cs" />
     <Compile Include="Infra\MyDataSourceRequestAttribute.cs" />
     <Compile Include="Infra\MyDataSourceRequestModelBinder.cs" />
+    <Compile Include="Infra\MyDataSourceResult.cs" />
     <Compile Include="Infra\ReferenceModelAttribute.cs" />
     <Compile Include="Infra\ViewModelUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

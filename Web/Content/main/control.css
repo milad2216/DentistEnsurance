@@ -119,6 +119,9 @@
 div.k-grid-header {
     padding-right: 0 !important;
 }
+.k-filter-row th, .k-grid-header th.k-header{
+    text-align:right;
+}
 
 .k-calendar {
     display: table !important;

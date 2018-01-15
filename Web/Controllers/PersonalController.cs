@@ -21,13 +21,23 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage Read(QueryInfo query)
+        public HttpResponseMessage Read([FromUri]QueryInfo query)
         {
-            var dataSourceResult = Service.GetAll().OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<Personal>();
+            var dataSourceResult = Service.GetAll().Where(p=>p.ID == p.ParentId).OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<PersonalViewModel>(query);
 
             //result = result.Skip(skip).Take(take);
 
-            return Request.CreateResponse(HttpStatusCode.OK, new { total = dataSourceResult.Count(), data = dataSourceResult });
+            return Request.CreateResponse(HttpStatusCode.OK, dataSourceResult);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage ReadChildren([FromUri]QueryInfo query, int parentId)
+        {
+            var dataSourceResult = Service.GetAll().Where(p=>p.ParentId == parentId && p.ParentId != p.ID).OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<PersonalViewModel>(query);
+
+            //result = result.Skip(skip).Take(take);
+
+            return Request.CreateResponse(HttpStatusCode.OK, dataSourceResult);
         }
     }
 }

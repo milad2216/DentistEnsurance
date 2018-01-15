@@ -13,7 +13,7 @@ namespace Web.ViewModel.AccessControl
     {
         public Int32 ParentId { get; set; }
         public String PersonalNo { get; set; }
-        public String FirsName { get; set; }
+        public String FirstName { get; set; }
         public String LastName { get; set; }
         public String Relation { get; set; }
         public String NationalNo { get; set; }

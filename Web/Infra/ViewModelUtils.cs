@@ -4,6 +4,8 @@ using System.Diagnostics;
 using AutoMapper;
 using Web.ViewModel;
 using Kendo.Mvc.UI;
+using Entity;
+using Entity.Common;
 
 namespace Web.Infra
 {
@@ -24,33 +26,33 @@ namespace Web.Infra
             }
             return result;
         }
-        public static DataSourceResult ToViewModel<TViewModel>(this DataSourceResult dataSourceResult, DataSourceRequest request) where TViewModel : IBaseViewModel
+        public static MyDataSourceResult ToViewModel<TViewModel>(this MyDataSourceResult dataSourceResult, QueryInfo request) where TViewModel : IBaseViewModel
         {
             var result = new List<TViewModel>();
             int offset = (request.Page - 1) * request.PageSize; // dataSourceResult.;
             int cnt = 1;
-            foreach (var row in dataSourceResult.Data)
+            foreach (var row in dataSourceResult.data)
             {
                 var viewModel = (TViewModel)Mapper.Map(row, row.GetType(), typeof(TViewModel));
                 viewModel.Radif = offset + cnt++;
                 result.Add(viewModel);
             }
-            dataSourceResult.Data = result;
+            dataSourceResult.data = result;
             return dataSourceResult;
         }
 
-        public static DataSourceResult ToViewModelDynamicMap<TViewModel>(this DataSourceResult dataSourceResult, DataSourceRequest request) where TViewModel : IBaseViewModel
+        public static MyDataSourceResult ToViewModelDynamicMap<TViewModel>(this MyDataSourceResult dataSourceResult, QueryInfo request) where TViewModel : IBaseViewModel
         {
             var result = new List<TViewModel>();
             int offset = (request.Page - 1) * request.PageSize; // dataSourceResult.;
             int cnt = 1;
-            foreach (var row in dataSourceResult.Data)
+            foreach (var row in dataSourceResult.data)
             {
                 var viewModel = (TViewModel)Mapper.DynamicMap(row, row.GetType(), typeof(TViewModel));
                 viewModel.Radif = offset + cnt++;
                 result.Add(viewModel);
             }
-            dataSourceResult.Data = result;
+            dataSourceResult.data = result;
             return dataSourceResult;
         }
 

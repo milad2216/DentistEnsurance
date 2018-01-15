@@ -9,10 +9,14 @@ namespace Web.Infra
 {
     public static class DataSourceUtil
     {
-        public static IQueryable<TModel> ToMyDataSourceResult<TModel>(this IQueryable<TModel> dataSourceResult, QueryInfo request) where TModel : BaseEntityClass
+        public static MyDataSourceResult ToMyDataSourceResult<TModel>(this IQueryable<TModel> dataSourceResult, QueryInfo request) where TModel : BaseEntityClass
         {
-            dataSourceResult.Skip(request.Skip).Take(request.Take);
-            return dataSourceResult;
+            MyDataSourceResult res = new MyDataSourceResult();
+            res.total = dataSourceResult.Count();
+            if (request.Skip > 0) dataSourceResult = dataSourceResult.Skip(request.Skip);
+            if (request.Take > 0) dataSourceResult = dataSourceResult.Take(request.Take);
+            res.data = dataSourceResult.ToList();
+            return res;
         }
     }
 }

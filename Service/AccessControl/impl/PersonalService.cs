@@ -11,7 +11,7 @@ namespace Service.AccessControl.impl
 {
     public class PersonalService : BaseIntService<Personal, IPersonalRepository>, IPersonalService
     {
-        protected PersonalService(IPersonalRepository repository) : base(repository)
+        public PersonalService(IPersonalRepository repository) : base(repository)
         {
             Repository = repository;
         }

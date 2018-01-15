@@ -19,7 +19,7 @@ namespace Entity.AccessControl
         }
         public int ParentId { get; set; }
         public string PersonalNo {get;set;}
-        public string FirsName  {get;set;}
+        public string FirstName  {get;set;}
         public string LastName {get;set;}
         public string Relation {get;set;}
         public string NationalNo {get;set;}
