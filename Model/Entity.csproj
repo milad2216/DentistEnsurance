@@ -68,7 +68,11 @@
     <Compile Include="AccessControl\Personal.cs" />
     <Compile Include="AccessControl\User.cs" />
     <Compile Include="BaseEntityClass.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\FilterInfoTranslator.cs" />
+    <Compile Include="Common\IQueryObject.cs" />
     <Compile Include="Common\QueryInfo.cs" />
+    <Compile Include="Common\QueryObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

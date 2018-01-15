@@ -37,7 +37,14 @@
                     serverSorting: true
                 },
                 sortable: true,
-                pageable: true,
+                pageable: {
+                    buttonCount: 3,
+                    previousNext:  true,
+                    numeric:  true,
+                    refresh:  true,
+                    info: true,
+                    pageSizes: [15, 30, 100, 500]
+                },
                 dataBound: function (e) {
                     debugger
                     this.expandRow(this.tbody.find("tr.k-master-row").first());
@@ -59,9 +66,6 @@
                     title: "کد پرسنلی",
                     width: "120px"
                 }]
-                , toolbar: [
-                    { 'name': 'refresh', template: '<button data-ng-click=\'refresh()\' class=\'k-button\'>بازنشانی</button>' }
-                ]
             };
 
             $scope.detailGridOptions = function (dataItem) {
