@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="AccessControl\IMenuRepository.cs" />
     <Compile Include="AccessControl\impl\MenuRepository.cs" />
+    <Compile Include="AccessControl\impl\PersonalRepository.cs" />
     <Compile Include="AccessControl\impl\UserRepository.cs" />
+    <Compile Include="AccessControl\IPersonalRepository.cs" />
     <Compile Include="AccessControl\IUserRepository.cs" />
     <Compile Include="Base\DummyRepository.cs" />
     <Compile Include="Base\IBaseIntRepository.cs" />

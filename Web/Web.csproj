@@ -58,6 +58,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.5.5\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\packages\Telerik\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -693,12 +696,19 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infra\CustomField.cs" />
+    <Compile Include="Infra\CustomFieldAttribute.cs" />
+    <Compile Include="Infra\DataSourceUtil.cs" />
+    <Compile Include="Infra\MyDataSourceRequestAttribute.cs" />
+    <Compile Include="Infra\MyDataSourceRequestModelBinder.cs" />
     <Compile Include="Infra\ReferenceModelAttribute.cs" />
+    <Compile Include="Infra\ViewModelUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -706,6 +716,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AccessControl\MenuViewModel.cs" />
+    <Compile Include="ViewModel\AccessControl\PersonalViewModel.cs" />
     <Compile Include="ViewModel\AccessControl\UserViewModel.cs" />
     <Compile Include="ViewModel\BaseIntViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewModel.cs" />

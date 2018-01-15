@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="AccessControl\IMenuService.cs" />
     <Compile Include="AccessControl\impl\MenuService.cs" />
+    <Compile Include="AccessControl\impl\PersonalService.cs" />
     <Compile Include="AccessControl\impl\UserService.cs" />
+    <Compile Include="AccessControl\IPersonalService.cs" />
     <Compile Include="AccessControl\IUserService.cs" />
     <Compile Include="Base\CFResult.cs" />
     <Compile Include="Base\DummyService.cs" />

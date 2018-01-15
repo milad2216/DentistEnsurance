@@ -11,11 +11,11 @@
             $scope.mainGridOptions = {
                 // autoBind:false,
                 dataSource: {
-                    // type: "odata",
+                    type: "odata",
                     transport: {
                         read: {
                             type: "GET",
-                            url: "/api/User/Read",
+                            url: "/api/Personal/Read",
                             dataType: "json",
                         },
                     },
@@ -27,9 +27,9 @@
                         data: "data",
                         total: "total"
                     },
-                    requestEnd: function (e) {
-                        debugger;
-                    },
+                    //requestEnd: function (e) {
+                    //    debugger;
+                    //},
                     pageSize: 5,
                     serverPaging: true,
                     serverSorting: true
@@ -64,7 +64,7 @@
                     dataSource: {
                         type: "odata",
                         transport: {
-                            read: "/api/User/Read"
+                            read: "/api/Personal/Read"
                         },
                         serverPaging: true,
                         serverSorting: true,

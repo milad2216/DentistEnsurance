@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InsuranceEntities.cs" />
+    <Compile Include="MapConfiguration\AccessControl\PersonalConfig.cs" />
     <Compile Include="MapConfiguration\AccessControl\UserConfig.cs" />
     <Compile Include="MapConfiguration\MenuConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
