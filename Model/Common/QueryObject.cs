@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LinqKit;
+using System;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entity.Common
 {
@@ -18,14 +15,12 @@ namespace Entity.Common
 
         public Expression<Func<TEntity, bool>> And(Expression<Func<TEntity, bool>> query)
         {
-            //return _query = _query == null ? query : _query.And(query.Expand());
-            return null;
+            return _query = _query == null ? query : _query.And(query.Expand());
         }
 
         public Expression<Func<TEntity, bool>> Or(Expression<Func<TEntity, bool>> query)
         {
-            //return _query = _query == null ? query : _query.Or(query.Expand());
-            return null;
+            return _query = _query == null ? query : _query.Or(query.Expand());
         }
 
         public Expression<Func<TEntity, bool>> And(IQueryObject<TEntity> queryObject)

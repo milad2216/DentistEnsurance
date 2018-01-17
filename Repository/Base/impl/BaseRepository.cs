@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using EntityFramework.Extensions;
 using System.Data.Entity.Infrastructure;
 using System.Data;
-using System.ComponentModel;
 using Configuration;
 
 namespace Repository.Base.impl

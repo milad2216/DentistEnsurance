@@ -1,8 +1,6 @@
 ﻿using Entity.AccessControl;
 using Entity.Common;
 using Service.AccessControl;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,8 +19,8 @@ namespace Web.Controllers
         }
 
         //[HttpGet]
-        [HttpPost]
-        public HttpResponseMessage Read(QueryInfo query)
+       // [HttpPost]
+        public HttpResponseMessage Get2([FromUri]QueryInfo query)
         {
             var dataSourceResult = Service.GetAll().Where(p=>p.ID == p.ParentId).OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<PersonalViewModel>(query);
 

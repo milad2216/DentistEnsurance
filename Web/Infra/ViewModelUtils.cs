@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using AutoMapper;
 using Web.ViewModel;
-using Kendo.Mvc.UI;
-using Entity;
 using Entity.Common;
 
 namespace Web.Infra

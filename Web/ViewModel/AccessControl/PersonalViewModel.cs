@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Entity.AccessControl;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Web.Infra;
 
 namespace Web.ViewModel.AccessControl
