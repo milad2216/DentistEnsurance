@@ -4,6 +4,7 @@ using Service.AccessControl;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using Web.Controllers.Base;
 using Web.Infra;
@@ -37,6 +38,13 @@ namespace Web.Controllers
             //result = result.Skip(skip).Take(take);
 
             return Request.CreateResponse(HttpStatusCode.OK, dataSourceResult);
+        }
+
+
+        public HttpResponseMessage GetLoginUser()
+        {
+            var curUser = (UserViewModel)(HttpContext.Current.Session["LoginUser"]);
+            return Request.CreateResponse(HttpStatusCode.OK, Service.FindById(curUser.PersonalId).ToViewModel<PersonalViewModel>());
         }
     }
 }

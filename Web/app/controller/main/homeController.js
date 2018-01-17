@@ -2,15 +2,19 @@
     debugger
     app.register.controller('homeController', ['$scope', '$rootScope', '$state', '$http',
         function ($scope, $rootScope, $state, $http) {
-            $scope.title = "milad majid"
+            $scope.title = "داشبورد"
             debugger
             $scope.refresh = function (e) {
                 $scope.mainGrid.dataSource.read();
             }
+            $scope.editPerson = function (e) {
+                var myItem = $scope.mainGrid.dataItem($(e.target).closest("tr"));
+                $state.go("person", { profile: myItem });
+            }
             $scope.mainGridOptions = {
                 // autoBind:false,
                 dataSource: {
-                  
+
                     transport: {
                         //read: function (options) {
                         //    return {
@@ -22,11 +26,11 @@
                         //        }
                         //    }
                         //},
-                        read:  {//You can get the current page, pageSize etc off `e`.
+                        read: {//You can get the current page, pageSize etc off `e`.
                             type: "GET",
                             url: "/api/Personal/Get2",
                             dataType: "json",
-                           
+
                         },
                         //parameterMap: function (data, type) {
                         //    if (type === "read") {
@@ -57,9 +61,9 @@
                 sortable: true,
                 pageable: {
                     buttonCount: 3,
-                    previousNext:  true,
-                    numeric:  true,
-                    refresh:  true,
+                    previousNext: true,
+                    numeric: true,
+                    refresh: true,
                     info: true,
                     pageSizes: [15, 30, 100, 500]
                 },
@@ -83,10 +87,17 @@
                     field: "PersonalNo",
                     title: "کد پرسنلی",
                     width: "120px"
-                }]
+                }, {
+                    command:
+                        {
+                            text: "ویرایش", click: $scope.editPerson
+                        }
+                    , title: " "
+                    , width: "80px"
+                }
+                ]
             };
-
-            $scope.detailGridOptions = function (dataItem) {
+            /*$scope.detailGridOptions = function (dataItem) {
                 return {
                     dataSource: {
                         type: "odata",
@@ -135,7 +146,7 @@
                     }
                     ]
                 };
-            };
+            };*/
         }]);
 });
 

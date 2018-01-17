@@ -1,0 +1,112 @@
+﻿
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-xs-7">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>{{title}}</legend>
+                        <!-- Text input-->
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="FirstName">نام</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user">
+                                        </i>
+                                    </div>
+                                    <input id="FirstName" name="FirstName" type="text" placeholder="نام" class="form-control input-md" value="{{user.FirstName}}">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="LastName">نام</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user">
+                                        </i>
+                                    </div>
+                                    <input id="LastName" name="LastName" type="text" placeholder="نام خانوادگی" class="form-control input-md" value="{{user.LastName}}">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- File Button -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="UploadPhoto">بارگذاری عکس</label>
+                            <div class="col-md-4">
+                                <input id="UploadPhoto" name="UploadPhoto" class="input-file" type="file">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="PersonalNo">کد پرسنلی</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-male" style="font-size: 20px;"></i>
+
+                                    </div>
+                                    <input id="PersonalNo" name="PersonalNo" type="text" placeholder="کد پرسنلی" class="form-control input-md" value="{{user.PersonalNo}}">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="NationalNo">کد ملی</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-female" style="font-size: 20px;"></i>
+
+                                    </div>
+                                    <input id="NationalNo" name="NationalNo" type="text" placeholder="کد ملی" class="form-control input-md" value="{{user.NationalNo}}">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Unit">واحد سازمانی</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-female" style="font-size: 20px;"></i>
+
+                                    </div>
+                                    <input id="Unit" name="Unit" type="text" placeholder="واحد سازمانی" class="form-control input-md" value="{{user.Unit}}">
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Multiple Radios (inline) -->
+                        <!--<div class="form-group">
+                            <label class="col-md-4 control-label" for="Gender">Gender</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline" for="Gender-0">
+                                    <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+                                    Male
+                                </label>
+                                <label class="radio-inline" for="Gender-1">
+                                    <input type="radio" name="Gender" id="Gender-1" value="2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>-->
+                        
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
+            </div>
+
+        </div>
+    </div>

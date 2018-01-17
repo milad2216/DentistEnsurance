@@ -16,11 +16,29 @@
         app._stateProvider = $stateProvider;
         $urlRouterProvider.otherwise('login');
         $stateProvider
-            
+            .state('profile', angularAMD.route(
+                {
+                    url: '/profile',
+                    title: 'داشبورد',
+                    controller: 'profileController',
+                    templateUrl: '/app/views/userSubSys/profile.html',
+                    controllerUrl: '/app/controller/userSubSys/profileController.js',
+
+                })).state('person', {
+                    url: '/person',
+                    title: 'کارکنان',
+                    controller: 'personController',
+                    templateUrl: '/app/views/userSubSys/person.html',
+                    controllerUrl: '/app/controller/userSubSys/personController.js',
+                    params: {
+                        profile: {}
+                    },
+                    //other state stuff
+                })
             .state('home', angularAMD.route(
                 {
                     url: '/home',
-                    title: 'تست',
+                    title: 'داشبورد',
                     controller: 'homeController',
                     templateUrl: '/app/views/main/home.html',
                     controllerUrl: '/app/controller/main/homeController.js',
