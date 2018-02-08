@@ -41,7 +41,7 @@ namespace Web.Controllers
         public HttpResponseMessage IsAuthenticated()
         {
             if((HttpContext.Current.Session["IsAuthenticated"]?.ToString()??"false") == "true")
-                return Request.CreateResponse(HttpStatusCode.OK, new { Authenticated = true });
+                return Request.CreateResponse(HttpStatusCode.OK, new { Authenticated = true, UserType = ((UserViewModel)HttpContext.Current.Session["LoginUser"]).UserType });
             else
                 return Request.CreateResponse(HttpStatusCode.OK, new { Authenticated = false });
         }

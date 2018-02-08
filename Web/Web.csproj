@@ -142,10 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\controller\login\loginController.js" />
-    <Content Include="app\controller\main\homeController.js" />
-    <Content Include="app\controller\userSubSys\personController.js" />
-    <Content Include="app\controller\userSubSys\profileController.js" />
+    <Content Include="app\views\login\loginController.js" />
+    <Content Include="app\views\main\homeController.js" />
+    <Content Include="app\views\userSubSys\personController.js" />
+    <Content Include="app\views\userSubSys\profileController.js" />
     <Content Include="app\directive\login.js" />
     <Content Include="app\directive\master.js" />
     <Content Include="app\directive\pnNavbar.js" />
@@ -158,7 +158,6 @@
     <Content Include="app\template\main\master.html" />
     <Content Include="app\views\login\login.html" />
     <Content Include="app\views\main\home.html" />
-    <Content Include="app\views\main\login.html" />
     <Content Include="app\views\userSubSys\person.html" />
     <Content Include="app\views\userSubSys\profile.html" />
     <Content Include="Content\bootstrap\css\Bootstrap-rtl.css" />
@@ -955,6 +954,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\views\admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Login\" />

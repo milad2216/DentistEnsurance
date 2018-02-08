@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Entity.Services;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.AccessControl
@@ -12,12 +13,12 @@ namespace Entity.AccessControl
             Childrens = new HashSet<Personal>();
         }
         public int ParentId { get; set; }
-        public string PersonalNo {get;set;}
-        public string FirstName  {get;set;}
-        public string LastName {get;set;}
-        public string Relation {get;set;}
-        public string NationalNo {get;set;}
-        public string Unit {get;set;}
+        public string PersonalNo { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Relation { get; set; }
+        public string NationalNo { get; set; }
+        public string Unit { get; set; }
 
 
         public virtual Personal Parent { get; set; }
@@ -25,5 +26,7 @@ namespace Entity.AccessControl
         public virtual ICollection<User> Users { get; set; }
 
         public virtual ICollection<Personal> Childrens { get; set; }
+
+        public virtual ICollection<Reserve> Reserves { get; set; }
     }
 }

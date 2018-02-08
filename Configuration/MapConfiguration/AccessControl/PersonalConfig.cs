@@ -16,6 +16,7 @@ namespace Configuration.MapConfiguration.AccessControl
             Property(p => p.PersonalNo).HasMaxLength(12);
             HasMany(p => p.Users).WithRequired().HasForeignKey(WFS => WFS.PersonalId);
             HasMany(p => p.Childrens).WithRequired().HasForeignKey(WFS => WFS.ParentId);
+            HasMany(p => p.Reserves).WithRequired().HasForeignKey(WFS => WFS.PersonalId);
         }
     }
 }

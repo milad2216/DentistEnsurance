@@ -78,6 +78,9 @@
     <Compile Include="Common\QueryInfo.cs" />
     <Compile Include="Common\QueryObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Reserve.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="Services\UserPayment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

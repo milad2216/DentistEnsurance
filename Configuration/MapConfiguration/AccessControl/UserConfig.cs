@@ -12,6 +12,8 @@ namespace Configuration.MapConfiguration.AccessControl
             HasKey(t => t.ID);
             Property(t => t.ID).HasColumnName("ID").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p => p.Username).IsUnicode(true);
+            HasMany(p => p.Reserves).WithRequired().HasForeignKey(WFS => WFS.UserId);
+            HasMany(p => p.UserPayments).WithRequired().HasForeignKey(WFS => WFS.UserId);
         }
     }
 }

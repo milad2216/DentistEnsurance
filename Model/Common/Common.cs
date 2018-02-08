@@ -2,8 +2,7 @@
 {
     public static class Common
     {
-        
-    }
 
-    
+    }
+    public enum ReserveStatusEnum { Reserved, Requested, Denied }
 }

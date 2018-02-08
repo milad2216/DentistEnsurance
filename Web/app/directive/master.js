@@ -10,6 +10,7 @@
             templateUrl: '/app/template/main/master.html',
             controller: function ($scope) {
                 debugger
+                $scope.userType = localStorage.getItem('userType')==="0";
                 $scope.menus = [];
                 //dataService.getData("api/Menu/GetMenu", {}).then(function (res) {
                 //});

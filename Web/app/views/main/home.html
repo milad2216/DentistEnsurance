@@ -1,24 +1,6 @@
-﻿<div kendo-grid="mainGrid" options="mainGridOptions">
-    <!--<div k-detail-template>
-        <kendo-tabstrip>
-            <ul>
-                <li class="k-state-active">زیرمجموعه</li>
-                <li>اطلاعات کارمند</li>
-            </ul>
-            <div>
-                <div kendo-grid k-options="detailGridOptions(dataItem)"></div>
-            </div>
-            <div>
-                <ul class="contact-info-form">
-                    <li><label>سقف خدمات قابل ارایه به ریال:</label> {{dataItem.NationalNo}}</li>
-                    <li><label>خدمات استفاده شده به ریال:</label> {{dataItem.PersonalNo}}</li>
-                    <li><label>آدرس:</label> {{dataItem.Address}}</li>
-                    <li><label>تلفن:</label> {{dataItem.HomePhone}}</li>
-                </ul>
-            </div>
-        </kendo-tabstrip>
-    </div>-->
-</div kendo-grid>
+﻿<div>
+    <div class="k-rtl" kendo-grid="kendoGrid" k-ng-delay="mainGridOptions" options="mainGridOptions"></div>
+</div>
 <style>
     .contact-info-form {
         list-style-type: none;

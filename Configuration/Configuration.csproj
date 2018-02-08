@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,6 +53,9 @@
     <Compile Include="MapConfiguration\AccessControl\PersonalConfig.cs" />
     <Compile Include="MapConfiguration\AccessControl\UserConfig.cs" />
     <Compile Include="MapConfiguration\MenuConfig.cs" />
+    <Compile Include="MapConfiguration\Services\ServiceConfig.cs" />
+    <Compile Include="MapConfiguration\Services\ReserveConfig.cs" />
+    <Compile Include="MapConfiguration\Services\UserPaymentConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,75 +1,65 @@
-﻿define(['app'], function (app) {
+﻿debugger;
+define(['app'], function (app) {
     debugger
     app.register.controller('homeController', ['$scope', '$rootScope', '$state', '$http',
         function ($scope, $rootScope, $state, $http) {
             $scope.title = "داشبورد"
             debugger
             $scope.refresh = function (e) {
-                $scope.mainGrid.dataSource.read();
+                $scope.kendoGrid.dataSource.read();
             }
             $scope.editPerson = function (e) {
-                var myItem = $scope.mainGrid.dataItem($(e.target).closest("tr"));
+                var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
                 $state.go("person", { profile: myItem });
+                $scope.$apply();
             }
+
+            $scope.dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {//You can get the current page, pageSize etc off `e`.
+                        type: "GET",
+                        url: "/api/Personal/Get2",
+                        dataType: "json",
+
+                    }
+                },
+                schema: {
+                    parse: function (response) {
+                        debugger;
+                        return response;
+                    },
+                    data: "data",
+                    total: "total"
+                },
+                autoSync: false,
+                serverPaging: true,
+                pageSize: 10,
+                serverSorting: true,
+                serverFiltering: true,
+            });
             $scope.mainGridOptions = {
                 // autoBind:false,
-                dataSource: {
-
-                    transport: {
-                        //read: function (options) {
-                        //    return {
-                        //        type: "POST",
-                        //        url: "/api/Personal/Read",
-                        //        dataType: "json",
-                        //        data: {
-                        //            query : options.data
-                        //        }
-                        //    }
-                        //},
-                        read: {//You can get the current page, pageSize etc off `e`.
-                            type: "GET",
-                            url: "/api/Personal/Get2",
-                            dataType: "json",
-
-                        },
-                        //parameterMap: function (data, type) {
-                        //    if (type === "read") {
-                        //        // send take as "$top" and skip as "$skip"
-                        //        debugger;
-                        //        return {
-                        //            $top: data.take,
-                        //            $skip: data.skip
-                        //        }
-                        //    }
-                        //}
-                    },
-                    schema: {
-                        parse: function (response) {
-                            debugger;
-                            return response;
-                        },
-                        data: "data",
-                        total: "total"
-                    },
-                    //requestEnd: function (e) {
-                    //    debugger;
-                    //},
-                    pageSize: 5,
-                    serverPaging: true,
-                    serverSorting: true
+                dataSource: $scope.dataSource,
+                height: 550,
+                resizable: true,
+                scrollable: true,
+                pageSize: 10,
+                selectable: "row",
+                sortable: {
+                    mode: "single",
+                    allowUnsort: true
                 },
-                sortable: true,
                 pageable: {
                     buttonCount: 3,
                     previousNext: true,
                     numeric: true,
                     refresh: true,
                     info: true,
-                    pageSizes: [15, 30, 100, 500]
+                    pageSizes: [10, 20, 50, 100]
                 },
                 dataBound: function (e) {
                     debugger
-                    this.expandRow(this.tbody.find("tr.k-master-row").first());
+                    //this.expandRow(this.tbody.find("tr.k-master-row").first());
                 },
                 columns: [{
                     field: "FirstName",
