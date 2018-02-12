@@ -4,7 +4,8 @@
         'ui.router',
         'ui.bootstrap',
         'kendo.directives',
-        'blockUI'
+        'blockUI',
+        'ngAnimate'
     ]);
 
     app.config(function (blockUIConfigProvider) {
@@ -13,7 +14,7 @@
         blockUIConfigProvider.autoBlock(false);
     });
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('home'),
+        $urlRouterProvider.otherwise('servicePublic'),
         $stateProvider
             .state('profile', angularAMD.route(
                 {
@@ -53,6 +54,13 @@
                             },
                         }
                     }))
+        .state('servicePublic', angularAMD.route({
+            url: '/servicePublic',
+            title: 'سرویس‌ها',
+            controller: 'servicePublicController',
+            templateUrl: '/app/views/service/servicePublic.html',
+            controllerUrl: '/app/views/service/servicePublicController.js'
+        }))
     });
 
     app.config(["$locationProvider", '$provide', function ($locationProvider, $provide) {
@@ -76,7 +84,7 @@
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         localStorage.setItem('userType', response.UserType);
-                        $state.go("home");
+                        $state.go("servicePublic");
                     } else {
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;

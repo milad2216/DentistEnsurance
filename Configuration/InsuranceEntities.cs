@@ -5,7 +5,7 @@ using System.Linq;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Entity.AccessControl;
-using Entity.Services;
+using Entity.Duties;
 
 namespace Configuration
 {
@@ -27,7 +27,7 @@ namespace Configuration
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Personal> Personals { get; set; }
-        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<Duty> Duties { get; set; }
         public virtual DbSet<Reserve> Reserves { get; set; }
         public virtual DbSet<UserPayment> UserPayments { get; set; }
 

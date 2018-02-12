@@ -1,4 +1,4 @@
-﻿using Entity.Services;
+﻿using Entity.Duties;
 using Repository.Base;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Services
+namespace Repository.Duties
 {
-    public interface IServiceRepository : IBaseIntRepository<Service>
+    public interface IUserPaymentRepository : IBaseIntRepository<UserPayment>
     {
     }
 }

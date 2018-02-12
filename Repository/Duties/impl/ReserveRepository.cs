@@ -1,19 +1,18 @@
-﻿using Entity.Services;
+﻿using Entity.Duties;
 using Repository.Base.impl;
-using Repository.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.impl.Services
+namespace Repository.Duties.impl
 {
-    class ServiceRepository : BaseIntRepository<Service>, IServiceRepository
+    public class ReserveRepository : BaseIntRepository<Reserve>, IReserveRepository
     {
         public override void InitiateDependencies()
         {
-            InitiateDependencies(Context.Services);
+            InitiateDependencies(Context.Reserves);
         }
     }
 }

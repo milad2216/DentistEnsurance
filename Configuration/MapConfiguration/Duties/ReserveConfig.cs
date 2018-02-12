@@ -1,4 +1,4 @@
-﻿using Entity.Services;
+﻿using Entity.Duties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,17 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configuration.MapConfiguration.Services
+namespace Configuration.MapConfiguration.Duties
 {
-    class UserPaymentConfig : EntityTypeConfiguration<UserPayment>
+    class ReserveConfig : EntityTypeConfiguration<Reserve>
     {
-        public UserPaymentConfig()
+        public ReserveConfig()
         {
-            ToTable("UserPayment");
+            ToTable("Reserve");
             HasKey(t => t.ID);
             Property(t => t.ID).HasColumnName("ID").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(p => p.Amount).IsRequired();
-            Property(p => p.DfDate).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Computed);
+            Property(t => t.RequestMessage).HasMaxLength(500);
         }
     }
 }

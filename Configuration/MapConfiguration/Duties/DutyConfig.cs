@@ -1,4 +1,4 @@
-﻿using Entity.Services;
+﻿using Entity.Duties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configuration.MapConfiguration.Services
+namespace Configuration.MapConfiguration.Duties
 {
-    class ServiceConfig : EntityTypeConfiguration<Service>
+    class DutyConfig : EntityTypeConfiguration<Duty>
     {
-        public ServiceConfig()
+        public DutyConfig()
         {
-            ToTable("Service");
+            ToTable("Duty");
             HasKey(t => t.ID);
             Property(t => t.ID).HasColumnName("ID").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p => p.Name).HasMaxLength(50).IsRequired();

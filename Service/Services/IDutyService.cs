@@ -1,13 +1,14 @@
-﻿using Service.Base;
+﻿using Entity.Duties;
+using Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Services
+namespace Service.Duties
 {
-    public interface IServiceService : IBaseIntService<Entity.Services.Service>
+    public interface IDutyService : IBaseIntService<Duty>
     {
     }
 }

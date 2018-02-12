@@ -10,7 +10,7 @@ define(['app'], function (app) {
                     if (response.Authenticated) {
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
-                        $state.go("home");
+                        $state.go("index");
                     } else {
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;

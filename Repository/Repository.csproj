@@ -64,12 +64,12 @@
     <Compile Include="Base\impl\BaseIntRepository.cs" />
     <Compile Include="Base\impl\BaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\impl\ReserveRepository.cs" />
-    <Compile Include="Services\impl\ServiceRepository.cs" />
-    <Compile Include="Services\impl\UserPaymentRepository.cs" />
-    <Compile Include="Services\IReserveRepository.cs" />
-    <Compile Include="Services\IServiceRepository.cs" />
-    <Compile Include="Services\IUserPaymentRepository.cs" />
+    <Compile Include="Duties\impl\ReserveRepository.cs" />
+    <Compile Include="Duties\impl\DutyRepository.cs" />
+    <Compile Include="Duties\impl\UserPaymentRepository.cs" />
+    <Compile Include="Duties\IReserveRepository.cs" />
+    <Compile Include="Duties\IDutyRepository.cs" />
+    <Compile Include="Duties\IUserPaymentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Configuration\Configuration.csproj">

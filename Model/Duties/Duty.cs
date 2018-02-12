@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Services
+namespace Entity.Duties
 {
-    public class Service : BaseEntityClass
+    public class Duty : BaseEntityClass
     {
         public string Name { get; set; }
         public string Description { get; set; }

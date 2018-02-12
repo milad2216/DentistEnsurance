@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Services
+namespace Entity.Duties
 {
     public class UserPayment : BaseEntityClass
     {

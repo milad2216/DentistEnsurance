@@ -1,4 +1,4 @@
-﻿using Entity.Services;
+﻿using Entity.Duties;
 using System.Collections.Generic;
 
 namespace Entity.AccessControl

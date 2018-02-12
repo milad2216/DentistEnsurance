@@ -143,7 +143,11 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\views\login\loginController.js" />
+    <Content Include="app\views\main\index.html" />
+    <Content Include="app\views\main\indexController.js" />
     <Content Include="app\views\main\homeController.js" />
+    <Content Include="app\views\service\servicePublic.html" />
+    <Content Include="app\views\service\servicePublicController.js" />
     <Content Include="app\views\userSubSys\personController.js" />
     <Content Include="app\views\userSubSys\profileController.js" />
     <Content Include="app\directive\login.js" />
@@ -503,6 +507,7 @@
     <Content Include="Content\kendoUI\Uniform\sprite_kpi.png" />
     <Content Include="Content\kendoUI\Uniform\sprite_kpi_2x.png" />
     <Content Include="Content\main\ace.min.css" />
+    <Content Include="Content\main\angular-ui-notification.min.css" />
     <Content Include="Content\main\control.css" />
     <Content Include="Content\main\font.css" />
     <Content Include="Content\main\index.css" />
@@ -514,9 +519,11 @@
     <Content Include="Global.asax" />
     <Content Include="Login\login.html" />
     <Content Include="Login\loginController.js" />
+    <Content Include="Scripts\bower\angular-animate.min.js" />
     <Content Include="Scripts\bower\angular-translate-loader-partial\angular-translate-loader-partial.js" />
     <Content Include="Scripts\bower\angular-translate-loader-partial\angular-translate-loader-partial.min.js" />
     <Content Include="Scripts\bower\angular-translate-loader-partial\angular-translate.min.js" />
+    <Content Include="Scripts\bower\angular-ui-notification.min.js" />
     <Content Include="Scripts\bower\blockui\angular-block-ui.js" />
     <Content Include="Scripts\bower\blockui\angular-block-ui.min.js" />
     <Content Include="Scripts\bower\bootstrap\bootstrap-rtl.js" />
@@ -697,6 +704,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Controllers\Duties\DutyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -720,6 +728,7 @@
     <Compile Include="ViewModel\AccessControl\UserViewModel.cs" />
     <Compile Include="ViewModel\BaseIntViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewModel.cs" />
+    <Compile Include="ViewModel\Duties\DutyViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -958,6 +967,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Configuration\Configuration.csproj">
