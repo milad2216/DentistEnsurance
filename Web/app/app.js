@@ -14,7 +14,7 @@
         blockUIConfigProvider.autoBlock(false);
     });
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('servicePublic'),
+        $urlRouterProvider.otherwise('duties'),
         $stateProvider
             .state('profile', angularAMD.route(
                 {
@@ -54,12 +54,12 @@
                             },
                         }
                     }))
-        .state('servicePublic', angularAMD.route({
-            url: '/servicePublic',
+        .state('duties', angularAMD.route({
+            url: '/duties',
             title: 'سرویس‌ها',
-            controller: 'servicePublicController',
-            templateUrl: '/app/views/service/servicePublic.html',
-            controllerUrl: '/app/views/service/servicePublicController.js'
+            controller: 'dutiesController',
+            templateUrl: '/app/views/duty/duties.html',
+            controllerUrl: '/app/views/duty/dutiesController.js'
         }))
     });
 
@@ -84,7 +84,7 @@
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         localStorage.setItem('userType', response.UserType);
-                        $state.go("servicePublic");
+                        $state.go("duties");
                     } else {
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;

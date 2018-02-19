@@ -17,11 +17,8 @@
                 //});
                 debugger
                 var userApp ="" ;
-
-                $scope.userApp = {
-                    FullName: "میلاد ولیمحمدی",
-                    PositionName: "مدیر ارشد سیستم"
-                };
+                $scope.userApp = JSON.parse(localStorage.getItem("UserCredit"));
+                $scope.userCredit = localStorage.getItem("UserCredit");
 
                 $scope.getPage = function (action) {
                     $state.go(action);

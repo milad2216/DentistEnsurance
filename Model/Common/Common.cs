@@ -4,5 +4,5 @@
     {
 
     }
-    public enum ReserveStatusEnum { Reserved, Requested, Denied }
+    public enum ReserveStatusEnum { Reserved, Requested, Denied, Done }
 }

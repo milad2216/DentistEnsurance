@@ -146,8 +146,8 @@
     <Content Include="app\views\main\index.html" />
     <Content Include="app\views\main\indexController.js" />
     <Content Include="app\views\main\homeController.js" />
-    <Content Include="app\views\service\servicePublic.html" />
-    <Content Include="app\views\service\servicePublicController.js" />
+    <Content Include="app\views\duty\duties.html" />
+    <Content Include="app\views\duty\dutiesController.js" />
     <Content Include="app\views\userSubSys\personController.js" />
     <Content Include="app\views\userSubSys\profileController.js" />
     <Content Include="app\directive\login.js" />

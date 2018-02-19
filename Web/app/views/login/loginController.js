@@ -10,7 +10,10 @@ define(['app'], function (app) {
                     if (response.Authenticated) {
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
-                        $state.go("index");
+                        localStorage.setItem('UserCredit', response.UserCredit);
+                        localStorage.setItem('User', response.User);
+                        
+                        $state.go("duties");
                     } else {
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;
