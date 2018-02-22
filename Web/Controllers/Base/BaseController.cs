@@ -1,5 +1,7 @@
 ﻿using Service.Base;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using Web.ViewModel;
@@ -28,17 +30,17 @@ namespace Web.Controllers.Base
         }
 
      
-        public virtual  JsonResult Create(TModel model)
+        public HttpResponseMessage Create(TModel model)
         {
             var result = Service.Create(model);
-            return MyJsonResult(result);
+            return Request.CreateResponse(HttpStatusCode.Accepted, result);
         }
 
 
-        public virtual JsonResult Edit(TModel model)
+        public HttpResponseMessage Edit(TModel model)
         {
             var result = Service.Edit(model);
-            return MyJsonResult(result);
+            return Request.CreateResponse(HttpStatusCode.Accepted, result );
         }
 
         protected JsonResult MyJsonResult(object data)

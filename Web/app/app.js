@@ -5,8 +5,27 @@
         'ui.bootstrap',
         'kendo.directives',
         'blockUI',
+        'ui-notification',
         'ngAnimate'
     ]);
+
+
+    app.config(["NotificationProvider", function (notificationProvider) {
+        notificationProvider.options.positionX = "right";
+        notificationProvider.options.positionY = "top";
+        //    = {
+        //    delay: 5e3,
+        //    startTop: 10,
+        //    startRight: 10,
+        //    verticalSpacing: 10,
+        //    horizontalSpacing: 10,
+        //    positionX: "right",
+        //    positionY: "top",
+        //    replaceMessage: !1,
+        //    templateUrl: "angular-ui-notification.html"
+        //}
+        notificationProvider.setOptions(notificationProvider.options);
+    }]);
 
     app.config(function (blockUIConfigProvider) {
         blockUIConfigProvider.message("dsfsddfsdfdsfdsfds");
@@ -60,6 +79,26 @@
             controller: 'dutiesController',
             templateUrl: '/app/views/duty/duties.html',
             controllerUrl: '/app/views/duty/dutiesController.js'
+        }))
+        .state('dutyDetails', angularAMD.route({
+            url: '/dutyDetails',
+            title: 'سرویس‌ها',
+            controller: 'dutyDetailsController',
+            templateUrl: '/app/views/duty/dutyDetails.html',
+            controllerUrl: '/app/views/duty/dutyDetailsController.js',
+            params: {
+                duty: {}
+            }
+        }))
+        .state('reserveSearch', angularAMD.route({
+            url: '/reserveSearch?status',
+            title: 'رزرو‌شده‌ها',
+            controller: 'reserveSearchController',
+            templateUrl: '/app/views/duty/reserve/reserveSearch.html',
+            controllerUrl: '/app/views/duty/reserve/reserveSearchController.js',
+            params: {
+                status: null
+            }
         }))
     });
 

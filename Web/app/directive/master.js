@@ -17,8 +17,8 @@
                 //});
                 debugger
                 var userApp ="" ;
-                $scope.userApp = JSON.parse(localStorage.getItem("UserCredit"));
-                $scope.userCredit = localStorage.getItem("UserCredit");
+                $scope.userApp = $rootScope.userData.user;
+                $scope.userCredit = $rootScope.userData.credit;
 
                 $scope.getPage = function (action) {
                     $state.go(action);

@@ -23,7 +23,7 @@ namespace Entity.AccessControl
 
         public virtual Personal Parent { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public ICollection<User> Users { get; set; }
 
         public virtual ICollection<Personal> Childrens { get; set; }
 

@@ -55,6 +55,12 @@
     <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\packages\Telerik\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -142,6 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\views\duty\dutyDetails.html" />
+    <Content Include="app\views\duty\dutyDetailsController.js" />
+    <Content Include="app\views\duty\reserve\reserveSearch.html" />
+    <Content Include="app\views\duty\reserve\reserveSearchController.js" />
     <Content Include="app\views\login\loginController.js" />
     <Content Include="app\views\main\index.html" />
     <Content Include="app\views\main\indexController.js" />
@@ -700,6 +710,7 @@
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Base\BaseIntController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\Duties\ReserveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
@@ -727,6 +738,7 @@
     <Compile Include="ViewModel\AccessControl\PersonalViewModel.cs" />
     <Compile Include="ViewModel\AccessControl\UserViewModel.cs" />
     <Compile Include="ViewModel\BaseIntViewModel.cs" />
+    <Compile Include="ViewModel\Duties\ReserveViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewModel.cs" />
     <Compile Include="ViewModel\Duties\DutyViewModel.cs" />
   </ItemGroup>

@@ -7,7 +7,8 @@ namespace Entity.AccessControl
     {
         public User()
         {
-            Personal = new Personal();
+            Reserves = new HashSet<Reserve>();
+            UserPayments = new HashSet<UserPayment>();
         }
         public int PersonalId { get; set; }
 
@@ -19,7 +20,7 @@ namespace Entity.AccessControl
 
         public int UserType { get; set; }
 
-        public virtual Personal Personal { get; set; }
+        public Personal Personal { get; set; }
 
         public virtual ICollection<Reserve> Reserves { get; set; }
 

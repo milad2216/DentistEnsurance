@@ -60,7 +60,11 @@
                 blockUI.start();
                 var deferred = $q.defer();
                 var then = this;
-                $http.post(url, data).then(function (response) {
+                $http.post(url, data, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (response) {
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {

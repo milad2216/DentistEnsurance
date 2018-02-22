@@ -11,7 +11,7 @@ namespace Service.Duties.impl
 {
     public class ReserveService : BaseIntService<Reserve, IReserveRepository>, IReserveService
     {
-        protected ReserveService(IReserveRepository repository) : base(repository)
+        public ReserveService(IReserveRepository repository) : base(repository)
         {
             Repository = repository;
         }
