@@ -1,4 +1,5 @@
-﻿using Entity.Duties;
+﻿using Entity.Common;
+using Entity.Duties;
 using Service.Duties;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Web.Controllers.Duties
         public HttpResponseMessage GetAllService()
         {
             var services = Service.GetAll().Where(p => p.IsActive).ToViewModel<DutyViewModel>();
-            return Request.CreateResponse(HttpStatusCode.OK, MyJsonResult(services));
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = services });
         }
     }
 }

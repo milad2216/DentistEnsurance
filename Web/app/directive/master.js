@@ -17,11 +17,8 @@
                 //});
                 debugger
                 var userApp ="" ;
-
-                $scope.userApp = {
-                    FullName: "میلاد ولیمحمدی",
-                    PositionName: "مدیر ارشد سیستم"
-                };
+                $scope.userApp = $rootScope.userData.user;
+                $scope.userCredit = $rootScope.userData.credit;
 
                 $scope.getPage = function (action) {
                     $state.go(action);

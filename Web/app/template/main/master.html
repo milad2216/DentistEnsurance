@@ -18,22 +18,22 @@
             </li>
             <li class="active menu-page"><a href="/home">صفحه اصلی</a></li>
             <li class="active menu-page"><a href="#">جستجوی</a></li>
-            <li class="menu-page"><a ui-sref="servicePublic">خدمات</a></li>
+            <li class="menu-page"><a ui-sref="duties">خدمات</a></li>
             <li class="menu-page"><a href="#about">گزارشات</a></li>
-            <li class="item-position">
-                <span class="yekan13" style="color:#fff;margin-left:5px;">سمت کاربر: </span>
+            <!--<li class="item-position">
+                <span class="yekan13" style="color:#fff;margin-left:5px;">اعتبار: </span>
                 <div class="btn-group">
-                    <button type="button" style="min-width:160px;" class="btn btn-default">{{userApp.PositionName}}</button>
-                    <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" style="min-width:160px; direction:ltr;" class="btn btn-default">{{userCredit}}</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         <li data-ng-repeat="positionItem in userApp.Positions"><a>{{positionItem.Name}}</a></li>
 
-                    </ul>-->
+                    </ul>
                 </div>
-            </li>
-            <li class="item-position" ng-if="userType">
+            </li>-->
+            <li class="item-position" ng-if="userType==0">
                 <span  class="menu-popover" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="
                     <div id='menu-app'>
                         <ul>
@@ -86,7 +86,7 @@
                             </li>
                         </ul>
                     </div>
-                    <i ng-if="userType" class="glyphicon glyphicon-th"></i> <span class="menu-popover-title yekan13">زیر سیستم ها</span>
+                    <i ng-if="userType==0" class="glyphicon glyphicon-th"></i> <span class="menu-popover-title yekan13">زیر سیستم ها</span>
                 </span>
             </li>
         </ul>
@@ -101,12 +101,13 @@
             <div class="header-title"> {{userApp.PositionName}} </div>
             <div class="col-sm-12" style="padding:0px">
                 <div class="list-group">
-                    <a ui-sref="cartable" class="list-group-item "><i class="glyphicon glyphicon-inbox"></i>رزروی‌ها<span class="badge font-yekan13">4</span></a>
-                    <a ui-sref="role" class="list-group-item"><i class="glyphicon glyphicon-share"></i>پیگیری<span class="badge font-yekan13">34</span></a>
-                    <a ui-sref="compostSearch" class="list-group-item"><i class="glyphicon glyphicon-edit "></i>در انتظار تایید<span class="badge font-yekan13">53</span></a>
-                    <a ui-sref="recycleSearch" class="list-group-item active"><i class="glyphicon glyphicon-trash"></i>تایید نشده<span class="badge font-yekan13">5</span></a>
-                    <a ui-sref="position" class="list-group-item"><i class="glyphicon glyphicon-comment"></i>پیغام<span class="badge font-yekan13">5</span></a>
-                    <a ui-sref="unit" class="list-group-item"><i class="glyphicon glyphicon-book"></i>اعتبار</a>
+                    <a ui-sref="reserveSearch({status:0})" class="list-group-item "><i class="glyphicon glyphicon-inbox"></i>رزروی‌ها<span class="badge font-yekan13"></span></a>
+                    <a ui-sref="reserveSearch({status:1})" class="list-group-item"><i class="glyphicon glyphicon-edit "></i>در انتظار تایید<span class="badge font-yekan13"></span></a>
+                    <a ui-sref="reserveSearch({status:2})" class="list-group-item"><i class="glyphicon glyphicon-trash"></i>تایید نشده<span class="badge font-yekan13"></span></a>
+                    <a ui-sref="reserveSearch({status:3})" class="list-group-item"><i class="glyphicon glyphicon-share"></i>انجام شده<span class="badge font-yekan13"></span></a>
+                    <a ui-sref="reserveSearch({status:4})" class="list-group-item"><i class="glyphicon glyphicon-share"></i>لغو شده<span class="badge font-yekan13"></span></a>
+                    <!--<a ui-sref="position" class="list-group-item"><i class="glyphicon glyphicon-comment"></i>پیغام<span class="badge font-yekan13">5</span></a>-->
+                    <a ui-sref="" class="list-group-item"><i class="glyphicon glyphicon-credit-card"></i>اعتبار<span class="badge font-yekan13" style="direction:ltr;">{{userCredit| currency : 'ریال' : 0 }}</span></a>
                 </div>
             </div>
             <hr />
@@ -127,7 +128,7 @@
     </div>
     <div class="content">
         <div class="content-widget-header">{{applicationModule}}</div>
-        <div class="cantent-view" ui-view>
+        <div class="cantent-view" ui-view style="background-color:#acacac; height:600px;">
             <div ng-transclude></div>
         </div>
     </div>

@@ -20,7 +20,7 @@ namespace Configuration.MapConfiguration.Duties
             Property(p => p.Description).HasMaxLength(500);
             Property(p => p.Cost).IsRequired();
             Property(p => p.IsActive).IsRequired();
-            HasMany(p => p.Reserves).WithRequired().HasForeignKey(WFS => WFS.ServiceId);
+            HasMany(p => p.Reserves).WithRequired().HasForeignKey(WFS => WFS.DutyId);
         }
     }
 }

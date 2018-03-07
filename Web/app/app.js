@@ -5,8 +5,27 @@
         'ui.bootstrap',
         'kendo.directives',
         'blockUI',
+        'ui-notification',
         'ngAnimate'
     ]);
+
+
+    app.config(["NotificationProvider", function (notificationProvider) {
+        notificationProvider.options.positionX = "right";
+        notificationProvider.options.positionY = "top";
+        //    = {
+        //    delay: 5e3,
+        //    startTop: 10,
+        //    startRight: 10,
+        //    verticalSpacing: 10,
+        //    horizontalSpacing: 10,
+        //    positionX: "right",
+        //    positionY: "top",
+        //    replaceMessage: !1,
+        //    templateUrl: "angular-ui-notification.html"
+        //}
+        notificationProvider.setOptions(notificationProvider.options);
+    }]);
 
     app.config(function (blockUIConfigProvider) {
         blockUIConfigProvider.message("dsfsddfsdfdsfdsfds");
@@ -14,7 +33,7 @@
         blockUIConfigProvider.autoBlock(false);
     });
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('servicePublic'),
+        $urlRouterProvider.otherwise('duties'),
         $stateProvider
             .state('profile', angularAMD.route(
                 {
@@ -54,12 +73,42 @@
                             },
                         }
                     }))
-        .state('servicePublic', angularAMD.route({
-            url: '/servicePublic',
+        .state('duties', angularAMD.route({
+            url: '/duties',
             title: 'سرویس‌ها',
-            controller: 'servicePublicController',
-            templateUrl: '/app/views/service/servicePublic.html',
-            controllerUrl: '/app/views/service/servicePublicController.js'
+            controller: 'dutiesController',
+            templateUrl: '/app/views/duty/duties.html',
+            controllerUrl: '/app/views/duty/dutiesController.js'
+        }))
+        .state('dutyDetails', angularAMD.route({
+            url: '/dutyDetails',
+            title: 'سرویس‌ها',
+            controller: 'dutyDetailsController',
+            templateUrl: '/app/views/duty/dutyDetails.html',
+            controllerUrl: '/app/views/duty/dutyDetailsController.js',
+            params: {
+                duty: {}
+            }
+        }))
+        .state('reserveSearch', angularAMD.route({
+            url: '/reserveSearch?status',
+            title: 'رزرو‌شده‌ها',
+            controller: 'reserveSearchController',
+            templateUrl: '/app/views/duty/reserve/reserveSearch.html',
+            controllerUrl: '/app/views/duty/reserve/reserveSearchController.js',
+            params: {
+                status: null
+            }
+        }))
+        .state('choosePerson', angularAMD.route({
+            url: '/choosePerson',
+            title: 'سرویس‌ها',
+            controller: 'choosePersonController',
+            templateUrl: '/app/views/duty/choosePerson/choosePerson.html',
+            controllerUrl: '/app/views/duty/choosePerson/choosePersonController.js',
+            params: {
+                duty: {}
+            }
         }))
     });
 
@@ -84,7 +133,7 @@
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         localStorage.setItem('userType', response.UserType);
-                        $state.go("servicePublic");
+                        $state.go("duties");
                     } else {
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;

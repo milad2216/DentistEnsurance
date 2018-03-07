@@ -2,6 +2,8 @@
 using Service.Base;
 using Entity;
 using Web.ViewModel;
+using System.Net.Http;
+using Web.Infra;
 
 namespace Web.Controllers.Base
 {
@@ -12,10 +14,10 @@ namespace Web.Controllers.Base
     {
 
         [HttpPost]
-        public virtual JsonResult Delete(int id)
+        public virtual HttpResponseMessage Delete(int id)
         {
             var result = ((IBaseIntService<TModel>)Service).Delete(id);
-            return MyJsonResult(result);
+            return MyResult(new ResultStructure(result));
         }
         
     }

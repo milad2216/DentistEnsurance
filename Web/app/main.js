@@ -16,6 +16,7 @@ require([
     'app',
     "/app/services/dataService.js",
     "/app/directive/master.js",
+    "/app/directive/pn-combobox.js",
     //"/app/directive/login.js"
 ], function (app) {
     app.bootstrap();

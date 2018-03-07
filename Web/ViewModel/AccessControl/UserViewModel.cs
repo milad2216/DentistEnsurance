@@ -30,6 +30,14 @@ namespace Web.ViewModel.AccessControl
 
         public String NationalNo { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
         public String Unit { get; set; }
 
         public override void CreateMappings()

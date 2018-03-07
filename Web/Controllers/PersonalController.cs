@@ -14,9 +14,11 @@ namespace Web.Controllers
 {
     public class PersonalController : BaseIntController<Personal, PersonalViewModel, IPersonalService>
     {
-        public PersonalController(IPersonalService service)
+        IUserService _userService;
+        public PersonalController(IPersonalService service, IUserService userService)
         {
             Service = service;
+            _userService = userService;
         }
 
         //[HttpGet]
@@ -27,7 +29,7 @@ namespace Web.Controllers
 
             //result = result.Skip(skip).Take(take);
 
-            return Request.CreateResponse(HttpStatusCode.OK, dataSourceResult);
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = dataSourceResult });
         }
 
         [HttpGet]
@@ -37,14 +39,21 @@ namespace Web.Controllers
 
             //result = result.Skip(skip).Take(take);
 
-            return Request.CreateResponse(HttpStatusCode.OK, dataSourceResult);
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = dataSourceResult });
         }
 
 
         public HttpResponseMessage GetLoginUser()
         {
             var curUser = (UserViewModel)(HttpContext.Current.Session["LoginUser"]);
-            return Request.CreateResponse(HttpStatusCode.OK, Service.FindById(curUser.PersonalId).ToViewModel<PersonalViewModel>());
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = Service.FindById(curUser.PersonalId).ToViewModel<PersonalViewModel>() });
+        }
+
+        public HttpResponseMessage GetUserPersonals()
+        {
+            var curUser = (UserViewModel)(HttpContext.Current.Session["LoginUser"]);
+            var persons = Service.FindBy(p => p.ParentId == curUser.PersonalId).ToViewModel<PersonalViewModel>();
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = persons });
         }
     }
 }

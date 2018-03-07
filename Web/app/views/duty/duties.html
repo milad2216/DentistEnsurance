@@ -2,13 +2,13 @@
     <form name="" class="form-horizontal group-border-dashed" style="border-radius: 0px;" action="#">
         <div class="window-menu">
             <div class="row">
-                <div ng-repeat="service in services" class="col-md-3 col-sm-6">
+                <div ng-repeat="duty in duties" class="col-md-3 col-sm-6">
                     <div class="content-box box-default fadeInUp animation-delay-{{10 + 2*($index)}} box-shadow-heder">
-                        <a ui-sref="organization">
+                        <a ng-click="select_duty(duty)">
                             <span style="line-height: 1.4" class="icon-ar icon-ar-lg icon-ar-round icon-ar-inverse"><i class="fa fa-plus-circle"></i></span>
-                            <h4 class="content-box-title" ng-bind="service.Name"></h4>
-                            <span class="content-box-des" ng-bind="service.Description"></span>
-                            <span class="content-box-des">{{ service.Cost | currency : 'ریال' : 0 }}</span>
+                            <h4 class="content-box-title" ng-bind="duty.Name"></h4>
+                            <span class="content-box-des" ng-bind="duty.Description"></span>
+                            <span class="content-box-des">{{ duty.Cost | currency : 'ریال' : 0 }}</span>
                             <span class="content-box-des"> <br /> </span>
                         </a>
                     </div>

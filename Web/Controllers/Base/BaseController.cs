@@ -1,7 +1,10 @@
 ﻿using Service.Base;
 using System;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
+using Web.Infra;
 using Web.ViewModel;
 
 namespace Web.Controllers.Base
@@ -17,7 +20,7 @@ namespace Web.Controllers.Base
     {
 
         public TService Service { get; set; }
-        public Type ViewModelType = typeof (TViewModel);
+        public Type ViewModelType = typeof(TViewModel);
         public Type ModelType = typeof(TModel);
         protected int DropDownCount = 10;
 
@@ -27,30 +30,23 @@ namespace Web.Controllers.Base
             base.Dispose(disposing);
         }
 
-     
-        public virtual  JsonResult Create(TModel model)
+
+        public HttpResponseMessage Create(TModel model)
         {
             var result = Service.Create(model);
-            return MyJsonResult(result);
+            return MyResult(new ResultStructure(result));
         }
 
 
-        public virtual JsonResult Edit(TModel model)
+        public HttpResponseMessage Edit(TModel model)
         {
             var result = Service.Edit(model);
-            return MyJsonResult(result);
+            return MyResult(new ResultStructure(result));
         }
 
-        protected JsonResult MyJsonResult(object data)
+        protected HttpResponseMessage MyResult(ResultStructure data)
         {
-
-            return new JsonResult
-            {
-                Data = data,
-                ContentType = null,
-                ContentEncoding = null,
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
+            return Request.CreateResponse(HttpStatusCode.Accepted, data);
         }
     }
 }

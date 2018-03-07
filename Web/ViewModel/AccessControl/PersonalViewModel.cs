@@ -16,6 +16,14 @@ namespace Web.ViewModel.AccessControl
         public String NationalNo { get; set; }
         public String Unit { get; set; }
 
+        public String FullName
+        {
+            get
+            {
+                return FirstName + ' ' + LastName;
+            }
+        }
+
         public override void CreateMappings()
         {
             var viewModelToModel = Mapper.CreateMap<PersonalViewModel, Personal>();
