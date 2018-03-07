@@ -14,7 +14,7 @@ namespace Configuration.MapConfiguration.AccessControl
             Property(p => p.NationalNo).IsUnicode(true);
             Property(p => p.NationalNo).HasMaxLength(10);
             Property(p => p.PersonalNo).HasMaxLength(12);
-            HasMany(p => p.Users).WithRequired().HasForeignKey(WFS => WFS.PersonalId);
+            HasMany(p => p.Users).WithOptional().HasForeignKey(WFS => WFS.PersonalId);
             HasMany(p => p.Childrens).WithRequired().HasForeignKey(WFS => WFS.ParentId);
             HasMany(p => p.Reserves).WithRequired().HasForeignKey(WFS => WFS.PersonalId);
         }

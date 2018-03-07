@@ -55,10 +55,34 @@ namespace Web.Controllers.Duties
             }
         }
 
+        public HttpResponseMessage GetNotBooked([FromUri]QueryInfo query)
+        {
+            var dataSourceResult = Service.GetAll().Include(x => x.Personal).Include(x => x.Duty)
+                .Where(p => p.Status == ReserveStatusEnum.Reserved && p.TurnDateTime == null).OrderByDescending(p => p.ID)
+                .ToMyDataSourceResult(query).ToViewModel<ReserveViewModel>(query);
+
+
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = dataSourceResult });
+        }
+
         public HttpResponseMessage GetStatusesAsList()
         {
             var list = Enum.GetValues(typeof(ReserveStatusEnum)).Cast<ReserveStatusEnum>().ToList();
             return MyResult(new ResultStructure { status = ResultCode.Success, data = list });
+        }
+
+        [HttpPost]
+        public HttpResponseMessage SaveTurn(Reserve model)
+        {
+            var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { TurnDateTime = model.TurnDateTime });
+            if (res > 0)
+            {
+                return MyResult(new ResultStructure { status = ResultCode.Success, message = "با موفقیت ذخیره شد." });
+            }
+            else
+            {
+                return MyResult(new ResultStructure { status = ResultCode.Error, message = "ثبت با مشکل روبرو شد." });
+            }
         }
     }
 }

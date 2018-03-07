@@ -14,7 +14,7 @@
 }
 
 .k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {
-    line-height: 33px !important;
+    /*line-height: 33px !important;*/
 }
 
 .k-rtl .k-dropdown-wrap .k-input, .k-rtl .k-picker-wrap .k-input, .k-rtl .k-numeric-wrap .k-input, .k-rtl span.k-picker-wrap .k-select, .k-rtl .k-numeric-wrap .k-select, .k-rtl .k-dropdown-wrap .k-select {

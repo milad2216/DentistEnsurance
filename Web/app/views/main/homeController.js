@@ -87,56 +87,6 @@ define(['app'], function (app) {
                 }
                 ]
             };
-            /*$scope.detailGridOptions = function (dataItem) {
-                return {
-                    dataSource: {
-                        type: "odata",
-                        transport: {
-                            read: {
-                                type: "GET",
-                                url: "/api/Personal/ReadChildren",
-                                dataType: "json",
-                                data: {
-                                    parentId: dataItem.ParentId
-                                }
-                            }
-                        },
-                        schema: {
-                            parse: function (response) {
-                                debugger;
-                                return response;
-                            },
-                            data: "data",
-                            total: "total"
-                        },
-                        serverPaging: true,
-                        serverSorting: true,
-                        serverFiltering: true,
-                        pageSize: 5
-                    },
-                    scrollable: false,
-                    sortable: true,
-                    pageable: true,
-                    columns: [{
-                        field: "FirstName",
-                        title: "نام",
-                        width: "120px"
-                    }, {
-                        field: "LastName",
-                        title: "نام خانوادگی",
-                        width: "120px"
-                    }, {
-                        field: "NationalNo",
-                        title: "کد ملی",
-                        width: "120px"
-                    }, {
-                        field: "Relation",
-                        title: "نسبت",
-                        width: "120px"
-                    }
-                    ]
-                };
-            };*/
         }]);
 });
 

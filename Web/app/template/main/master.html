@@ -101,11 +101,11 @@
             <div class="header-title"> {{userApp.PositionName}} </div>
             <div class="col-sm-12" style="padding:0px">
                 <div class="list-group">
-                    <a ui-sref="reserveSearch({status:0})" class="list-group-item "><i class="glyphicon glyphicon-inbox"></i>رزروی‌ها<span class="badge font-yekan13"></span></a>
-                    <a ui-sref="reserveSearch({status:1})" class="list-group-item"><i class="glyphicon glyphicon-edit "></i>در انتظار تایید<span class="badge font-yekan13"></span></a>
+                    <a ng-repeat="menu in menus" ui-sref="{{menu.uiSref}}" class="list-group-item "><i class="glyphicon {{menu.Class}}"></i>{{menu.Desc}}<span class="badge font-yekan13"></span></a>
+                    <!--<a ui-sref="reserveSearch({status:1})" class="list-group-item"><i class="glyphicon glyphicon-edit "></i>در انتظار تایید<span class="badge font-yekan13"></span></a>
                     <a ui-sref="reserveSearch({status:2})" class="list-group-item"><i class="glyphicon glyphicon-trash"></i>تایید نشده<span class="badge font-yekan13"></span></a>
                     <a ui-sref="reserveSearch({status:3})" class="list-group-item"><i class="glyphicon glyphicon-share"></i>انجام شده<span class="badge font-yekan13"></span></a>
-                    <a ui-sref="reserveSearch({status:4})" class="list-group-item"><i class="glyphicon glyphicon-share"></i>لغو شده<span class="badge font-yekan13"></span></a>
+                    <a ui-sref="reserveSearch({status:4})" class="list-group-item"><i class="glyphicon glyphicon-share"></i>لغو شده<span class="badge font-yekan13"></span></a>-->
                     <!--<a ui-sref="position" class="list-group-item"><i class="glyphicon glyphicon-comment"></i>پیغام<span class="badge font-yekan13">5</span></a>-->
                     <a ui-sref="" class="list-group-item"><i class="glyphicon glyphicon-credit-card"></i>اعتبار<span class="badge font-yekan13" style="direction:ltr;">{{userCredit| currency : 'ریال' : 0 }}</span></a>
                 </div>
@@ -128,7 +128,7 @@
     </div>
     <div class="content">
         <div class="content-widget-header">{{applicationModule}}</div>
-        <div class="cantent-view" ui-view style="background-color:#acacac; height:600px;">
+        <div class="cantent-view" ui-view style="<!--background-color:#acacac;--> height:600px;">
             <div ng-transclude></div>
         </div>
     </div>

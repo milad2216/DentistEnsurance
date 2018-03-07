@@ -19,6 +19,7 @@ namespace Web.ViewModel.Duties
         public ReserveStatusEnum Status { get; set; }
         public string RequestMessage { get; set; }
         public bool Reported { get; set; }
+        public DateTime? TurnDateTime { get; set; }
         public PersonalViewModel Personal { get; set; }
         public DutyViewModel Duty { get; set; }
         public override void CreateMappings()

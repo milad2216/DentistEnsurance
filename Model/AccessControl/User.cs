@@ -1,5 +1,7 @@
-﻿using Entity.Duties;
+﻿using Entity.Common;
+using Entity.Duties;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entity.AccessControl
 {
@@ -10,7 +12,7 @@ namespace Entity.AccessControl
             Reserves = new HashSet<Reserve>();
             UserPayments = new HashSet<UserPayment>();
         }
-        public int PersonalId { get; set; }
+        public int? PersonalId { get; set; }
 
         public string Username { get; set; }
 
@@ -18,7 +20,8 @@ namespace Entity.AccessControl
 
         public int Salary { get; set; }
 
-        public int UserType { get; set; }
+        [EnumDataType(typeof(ReserveStatusEnum), ErrorMessage = "مقدار نوع کاربر اشتباه است")]
+        public UserType UserType { get; set; }
 
         public Personal Personal { get; set; }
 

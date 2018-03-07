@@ -13,4 +13,17 @@
         Exception = 2,
         ValidationError = 3
     }
+    public enum UserType
+    {
+        Admin = 0,
+        Referred = 1, // بیمار
+        Financial = 2, // مالی
+        Secretary = 3 // دندانپزشکی
+    }
+
+    public enum MaritalStatus
+    {
+        Single = 0,
+        Married = 1
+    }
 }

@@ -80,6 +80,23 @@
             templateUrl: '/app/views/duty/duties.html',
             controllerUrl: '/app/views/duty/dutiesController.js'
         }))
+        .state('notBookedSearch', angularAMD.route({
+            url: '/notBookedSearch',
+            title: 'رزرو نشده ها',
+            controller: 'notBookedSearchController',
+            templateUrl: '/app/views/Secretary/notBooked/notBookedSearch.html',
+            controllerUrl: '/app/views/Secretary/notBooked/notBookedSearchController.js'
+        }))
+        .state('doBook', angularAMD.route({
+            url: '/doBook',
+            title: 'سرویس‌ها',
+            controller: 'doBookController',
+            templateUrl: '/app/views/Secretary/notBooked/doBook.html',
+            controllerUrl: '/app/views/Secretary/notBooked/doBookController.js',
+            params: {
+                reserve: {}
+            }
+        }))
         .state('dutyDetails', angularAMD.route({
             url: '/dutyDetails',
             title: 'سرویس‌ها',

@@ -1,0 +1,55 @@
+﻿<form id="doBookForm" name="doBookForm">
+
+    <div class="row col-md-10 margin-top-10">
+        <div class="col-md-4">
+
+            <label class="label">
+                نام سرویس:
+            </label>
+            <span class="content-box-des">{{ reserveItem.Duty.Name }}</span>
+
+        </div>
+        <div class="col-md-4">
+
+            <label class="label">مبلغ سرویس:</label>
+            <span class="content-box-des">{{ reserveItem.Duty.Cost | currency : 'ریال' : 0 }}</span>
+
+        </div>
+        <div class="col-md-4">
+
+            <label class="label">نام بیمار:</label>
+            <span class="content-box-des">{{ reserveItem.Personal.FirstName}} {{ reserveItem.Personal.LastName }}</span>
+
+        </div>
+    </div>
+    <div class="row col-md-10 margin-top-10">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <label class="label">انتخاب زمان نوبت</label>
+            <input kendo-date-time-picker
+                   ng-model="ReserveDateTime"
+                   k-options="kendoDateTimeOptions"
+                   style="width: 100%;" />
+
+        </div>
+    </div>
+    <div class="col-xs-12 margin-top-50">
+        <button type="submit" class="btn btn-success center-block" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>
+<style>
+    .label {
+        float: right;
+        color: #000000;
+        margin-top: 2px;
+    }
+
+    span.content-box-des {
+        margin-right: 10px;
+    }
+
+    .margin-top-50{
+        margin-top:50px !important;
+    }
+</style>

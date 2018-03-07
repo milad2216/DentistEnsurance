@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entity.AccessControl;
+using Entity.Common;
 using System;
 using Web.Infra;
 
@@ -16,7 +17,7 @@ namespace Web.ViewModel.AccessControl
 
         public Int32 Salary { get; set; }
 
-        public Int32 UserType { get; set; }
+        public UserType UserType { get; set; }
 
         public Int32 ParentId { get; set; }
 

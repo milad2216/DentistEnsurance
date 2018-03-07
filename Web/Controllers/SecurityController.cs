@@ -32,13 +32,19 @@ namespace Web.Controllers
                 HttpContext.Current.Session["LoginUser"] = curUser;
                 HttpContext.Current.Session["IsAuthenticated"] = "true";
                 long? userDoneReserves = 0;
-                var services = _reserveService.GetAll().Include(x => x.Duty).Where(p => p.UserId == entity.ID && p.Status != ReserveStatusEnum.Denied && p.Status != ReserveStatusEnum.Canceled);
-                if(services.Any())
-                    userDoneReserves = services?.Sum(s => s.Duty!=null?s.Duty.Cost:0)??(long)(0);
-                var userPayments = entity.UserPayments.Sum(s => s.Amount);
+                if (curUser.UserType == UserType.Referred)
+                {
+                    var services = _reserveService.GetAll().Include(x => x.Duty).Where(p => p.UserId == entity.ID && p.Status != ReserveStatusEnum.Denied && p.Status != ReserveStatusEnum.Canceled);
+                    if (services.Any())
+                        userDoneReserves = services?.Sum(s => s.Duty != null ? s.Duty.Cost : 0) ?? (long)(0);
+                    var userPayments = entity.UserPayments.Sum(s => s.Amount);
 
-                HttpContext.Current.Session["UserCredit"] = ((entity.Salary + userPayments) - (userDoneReserves ?? 0));
-                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, User = curUser, UserCredit = ((entity.Salary + userPayments) - (userDoneReserves??0)) } });
+                    HttpContext.Current.Session["UserCredit"] = ((entity.Salary + userPayments) - (userDoneReserves ?? 0));
+                }else
+                {
+                    HttpContext.Current.Session["UserCredit"] = 0;
+                }
+                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, User = curUser, UserCredit = int.Parse(HttpContext.Current.Session["UserCredit"].ToString()) } });
             }
             else
                 return MyResult(new ResultStructure { status = ResultCode.Error, data = new { Authenticated = false } });

@@ -15,6 +15,7 @@ require.config({
 require([
     'app',
     "/app/services/dataService.js",
+    "/app/services/menuService.js",
     "/app/directive/master.js",
     "/app/directive/pn-combobox.js",
     //"/app/directive/login.js"

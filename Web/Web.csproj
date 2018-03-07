@@ -163,6 +163,14 @@
     <Content Include="app\views\main\homeController.js" />
     <Content Include="app\views\duty\duties.html" />
     <Content Include="app\views\duty\dutiesController.js" />
+    <Content Include="app\views\Secretary\file\personalFile.html" />
+    <Content Include="app\views\Secretary\file\personalFileController.js" />
+    <Content Include="app\views\Secretary\notBooked\doBook.html" />
+    <Content Include="app\views\Secretary\notBooked\doBookController.js" />
+    <Content Include="app\views\Secretary\notBooked\notBookedSearch.html" />
+    <Content Include="app\views\Secretary\notBooked\notBookedSearchController.js" />
+    <Content Include="app\views\Secretary\personel\personelSearch.html" />
+    <Content Include="app\views\Secretary\personel\personelSearchController.js" />
     <Content Include="app\views\userSubSys\personController.js" />
     <Content Include="app\views\userSubSys\profileController.js" />
     <Content Include="app\directive\login.js" />

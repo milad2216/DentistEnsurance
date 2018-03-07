@@ -52,6 +52,9 @@
     <Compile Include="InsuranceEntities.cs" />
     <Compile Include="MapConfiguration\AccessControl\PersonalConfig.cs" />
     <Compile Include="MapConfiguration\AccessControl\UserConfig.cs" />
+    <Compile Include="MapConfiguration\File\PersonalFileConfig.cs" />
+    <Compile Include="MapConfiguration\File\TreatmentDescriptionConfig.cs" />
+    <Compile Include="MapConfiguration\File\TreatmentPlanConfig.cs" />
     <Compile Include="MapConfiguration\MenuConfig.cs" />
     <Compile Include="MapConfiguration\Duties\DutyConfig.cs" />
     <Compile Include="MapConfiguration\Duties\ReserveConfig.cs" />
