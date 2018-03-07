@@ -1,8 +1,8 @@
 ﻿debugger;
 define(['app'], function (app) {
     debugger
-    app.register.controller('choosePersonController', ['$scope', '$rootScope', '$state', '$http', '$stateParams', 'dataService',
-        function ($scope, $rootScope, $state, $http, $stateParams, dataService) {
+    app.register.controller('choosePersonController', ['$scope', '$rootScope', '$state', '$http', '$stateParams', 'dataService', 'Notification',
+        function ($scope, $rootScope, $state, $http, $stateParams, dataService, Notification) {
 
             $scope.duty = $stateParams.duty;
             $scope.title = "انتخاب بیمار"
@@ -12,7 +12,7 @@ define(['app'], function (app) {
             $scope.personalOptions = {
                 autoBind: false,
                 text: "FullName",
-                value: "Id",
+                value: "ID",
                 transport: {
                     read: {
                         url: "/api/Personal/GetUserPersonals",
@@ -23,7 +23,7 @@ define(['app'], function (app) {
 
             $scope.saveEntity = function () {
                 if ($scope.choosePersonForm.$valid) {
-                    dataService.addEntity('/api/Reserve/Create', { PersonalId: $scope.personalId, DutyId: duty.ID, UserId: $scope.userApp.ID, Status: 0 }).then(function (data) {
+                    dataService.addEntity('/api/Reserve/Create', { PersonalId: $scope.personalId, DutyId: $scope.duty.ID, UserId: $scope.userApp.ID, Status: 0 }).then(function (data) {
                         debugger
 
                         Notification.success(data.message);

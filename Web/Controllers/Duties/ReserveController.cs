@@ -37,14 +37,21 @@ namespace Web.Controllers.Duties
         [HttpPost]
         public HttpResponseMessage Cancel(Reserve model)
         {
-            var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { Status = ReserveStatusEnum.Canceled });
-            if (res > 0)
+            if (!model.Reported)
             {
-                return MyResult(new ResultStructure { status = ResultCode.Success, message = "با موفقیت لغو شد." });
+                var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { Status = ReserveStatusEnum.Canceled });
+                if (res > 0)
+                {
+                    return MyResult(new ResultStructure { status = ResultCode.Success, message = "با موفقیت لغو شد." });
+                }
+                else
+                {
+                    return MyResult(new ResultStructure { status = ResultCode.Error, message = "لغو با مشکل روبرو شد." });
+                }
             }
             else
             {
-                return MyResult(new ResultStructure { status = ResultCode.Error, message = "لغو با مشکل روبرو شد." });
+                return MyResult(new ResultStructure { status = ResultCode.Error, message = "مورد انتخاب شده به مالی معرفی شده و قابل لغو نمیباشد." });
             }
         }
 

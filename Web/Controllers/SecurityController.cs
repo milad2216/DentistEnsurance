@@ -31,9 +31,14 @@ namespace Web.Controllers
                 var curUser = entity.ToViewModel<UserViewModel>();
                 HttpContext.Current.Session["LoginUser"] = curUser;
                 HttpContext.Current.Session["IsAuthenticated"] = "true";
-                var userDoneReserves = _reserveService.GetAll().Include(x=>x.Duty).Where(p => p.UserId == entity.ID && p.Status != Entity.Common.ReserveStatusEnum.Denied && p.Status != Entity.Common.ReserveStatusEnum.Canceled).Sum(s => s.Duty.Cost);
+                long? userDoneReserves = 0;
+                var services = _reserveService.GetAll().Include(x => x.Duty).Where(p => p.UserId == entity.ID && p.Status != ReserveStatusEnum.Denied && p.Status != ReserveStatusEnum.Canceled);
+                if(services.Any())
+                    userDoneReserves = services?.Sum(s => s.Duty!=null?s.Duty.Cost:0)??(long)(0);
                 var userPayments = entity.UserPayments.Sum(s => s.Amount);
-                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, User = curUser, UserCredit = ((entity.Salary + userPayments) - userDoneReserves) } });
+
+                HttpContext.Current.Session["UserCredit"] = ((entity.Salary + userPayments) - (userDoneReserves ?? 0));
+                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, User = curUser, UserCredit = ((entity.Salary + userPayments) - (userDoneReserves??0)) } });
             }
             else
                 return MyResult(new ResultStructure { status = ResultCode.Error, data = new { Authenticated = false } });
@@ -49,7 +54,10 @@ namespace Web.Controllers
         public HttpResponseMessage IsAuthenticated()
         {
             if ((HttpContext.Current.Session["IsAuthenticated"]?.ToString() ?? "false") == "true")
-                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, UserType = ((UserViewModel)HttpContext.Current.Session["LoginUser"]).UserType } });
+            {
+                var curUser = (UserViewModel)HttpContext.Current.Session["LoginUser"];
+                return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = true, User = curUser, UserCredit = int.Parse(HttpContext.Current.Session["UserCredit"].ToString()) } });
+            }
             else
                 return MyResult(new ResultStructure { status = ResultCode.Success, data = new { Authenticated = false } });
         }

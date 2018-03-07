@@ -149,6 +149,7 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\directive\pn-combobox.js" />
+    <Content Include="app\services\menuService.js" />
     <Content Include="app\template\directive\comboBox.html" />
     <Content Include="app\views\duty\choosePerson\choosePerson.html" />
     <Content Include="app\views\duty\choosePerson\choosePersonController.js" />

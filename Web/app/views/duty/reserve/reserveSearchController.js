@@ -10,8 +10,10 @@ define(['app'], function (app) {
             $scope.cancelReserve = function (e) {
                 var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
                 dataService.postData('/api/Reserve/Cancel', myItem).then(function (data) {
-                    $scope.kendoGrid.dataSource.read();
-                    Notification.success(data.message);
+                    if (!data.status) {
+                        $scope.kendoGrid.dataSource.read();
+                        Notification.success(data.message);
+                    }
                 })
                 $scope.$apply();
             }
@@ -40,6 +42,7 @@ define(['app'], function (app) {
                             UserId: { type: "number", defaultValue: null },
                             Status: { type: "number", defaultValue: null },
                             RequestMessage: { type: "string", editable: false },
+                            Reported: { type: "boolean", editable: false },
                             Personal: { defaultValue: {} },
                             PersonalFirstName: { from: "Personal.FirstName", type: "string", editable: false, nullable: true },
                             PersonalLastName: { from: "Personal.LastName", type: "string", editable: false, nullable: true },

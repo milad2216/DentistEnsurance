@@ -120,7 +120,7 @@
         $locationProvider.hashPrefix('!');
     }]);
 
-    app.run(["$browser", "$rootScope", "$state", "$stateParams", "$http", function ($browser, $rootScope, $state, $stateParams, $http) {
+    app.run(["$browser", "$rootScope", "$state", "$stateParams", "$http", "dataService", function ($browser, $rootScope, $state, $stateParams, $http, dataService) {
 
         var firstLoad = true;
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
@@ -128,11 +128,12 @@
                 firstLoad = false;
                 event.preventDefault();
 
-                $http.post('/api/Security/IsAuthenticated', {}).success(function (response) {
+                dataService.postData('/api/Security/IsAuthenticated', {}).then(function (response) {
                     if (response.Authenticated) {
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
-                        localStorage.setItem('userType', response.UserType);
+                        $rootScope.userData = { credit: response.UserCredit, user: response.User };
+                        $rootScope.userType = response.User.UserType;
                         $state.go("duties");
                     } else {
                         $rootScope.statusforlayout = false;
