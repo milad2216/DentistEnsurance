@@ -63,7 +63,7 @@ define(['app'], function (app) {
                 filterable: {
                     extra: false
                 },
-                height: 550,
+                height: 500,
                 resizable: true,
                 scrollable: true,
                 pageSize: 10,
@@ -86,7 +86,7 @@ define(['app'], function (app) {
                 columns: [{
                     field: "PersonalFirstName",
                     title: "نام",
-                    width: "200px",
+                    width: "200",
                     filterable:
                     {
                         cell:
@@ -97,7 +97,7 @@ define(['app'], function (app) {
                 }, {
                     field: "PersonalLastName",
                     title: "نام خانوادگی",
-                    width: "200px",
+                    width: "200",
                     filterable:
                     {
                         cell:
@@ -108,7 +108,7 @@ define(['app'], function (app) {
                 }, {
                     field: "DutyName",
                     title: "نام سرویس",
-                    width: "200px",
+                    width: "200",
                     filterable:
                     {
                         cell:
@@ -119,7 +119,7 @@ define(['app'], function (app) {
                 }, {
                     field: "DutyCost",
                     title: "هزینه سرویس",
-                    width: "200px",
+                    width: "200",
                     filterable:
                     {
                         cell:
@@ -130,14 +130,16 @@ define(['app'], function (app) {
                 }, {
                     field: "Status",
                     title: "وضعیت",
-                    width: '200px',
+                    width: '200',
                     values: items
                 }, {
                     field: "TurnDate",
+                    width: '200',
                     title: "تاریخ نوبت",
                     template: "#= moment(TurnDate).format('jYYYY/jMM/jDD')#",
                 }, {
                     field: "TurnTime",
+                    width: '200',
                     title: "زمان نوبت"
                 }
                 ]

@@ -40,7 +40,7 @@ define(['app'], function (app) {
             $scope.mainGridOptions = {
                 // autoBind:false,
                 dataSource: $scope.dataSource,
-                height: 550,
+                height: 500,
                 resizable: true,
                 scrollable: true,
                 pageSize: 10,

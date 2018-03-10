@@ -62,7 +62,7 @@ define(['app'], function (app) {
             $scope.mainGridOptions = {
                 // autoBind:false,
                 dataSource: dataSource,
-                height: 550,
+                height: 500,
                 resizable: true,
                 scrollable: true,
                 pageSize: 10,
@@ -108,7 +108,7 @@ define(['app'], function (app) {
                 }, {
                     field: "DutyName",
                     title: "نام سرویس",
-                    width: "200px",
+                    width: "100px",
                     filterable:
                     {
                         cell:
@@ -119,7 +119,7 @@ define(['app'], function (app) {
                 }, {
                     field: "DutyCost",
                     title: "هزینه سرویس",
-                    width: "200px",
+                    width: "100px",
                     filterable:
                     {
                         cell:
@@ -130,7 +130,7 @@ define(['app'], function (app) {
                 }, {
                     field: "Status",
                     title: "وضعیت",
-                    width: '200px',
+                    width: '100px',
                     values: items
                 }
                 ]

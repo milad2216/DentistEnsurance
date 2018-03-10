@@ -48,7 +48,10 @@ define(['app'], function (app) {
             $scope.mainGridOptions = {
                 // autoBind:false,
                 dataSource: dataSource,
-                height: 550,
+                filterable: {
+                    extra: false
+                },
+                height: 500,
                 resizable: true,
                 scrollable: true,
                 pageSize: 10,
@@ -93,7 +96,7 @@ define(['app'], function (app) {
                     }
                 }, {
                     field: "NationalNo",
-                    title: "نام سرویس",
+                    title: "کد ملی",
                     width: "200px",
                     filterable:
                     {
@@ -104,7 +107,7 @@ define(['app'], function (app) {
                     }
                 }, {
                     field: "PersonalNo",
-                    title: "هزینه سرویس",
+                    title: "کد پرسنلی",
                     width: "200px",
                     filterable:
                     {
