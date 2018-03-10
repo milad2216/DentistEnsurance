@@ -87,6 +87,30 @@
             templateUrl: '/app/views/Secretary/notBooked/notBookedSearch.html',
             controllerUrl: '/app/views/Secretary/notBooked/notBookedSearchController.js'
         }))
+        .state('allReserveSearch', angularAMD.route({
+            url: '/allReserveSearch',
+            title: 'رزرو نشده ها',
+            controller: 'allReserveSearchController',
+            templateUrl: '/app/views/Secretary/reserve/allReserveSearch.html',
+            controllerUrl: '/app/views/Secretary/reserve/allReserveSearchController.js'
+        }))
+        .state('personalSearch', angularAMD.route({
+            url: '/personalSearch',
+            title: 'رزرو نشده ها',
+            controller: 'personalSearchController',
+            templateUrl: '/app/views/Secretary/personal/personalSearch.html',
+            controllerUrl: '/app/views/Secretary/personal/personalSearchController.js'
+        }))
+        .state('personalFile', angularAMD.route({
+            url: '/personalFile',
+            title: 'سرویس‌ها',
+            controller: 'personalFileController',
+            templateUrl: '/app/views/Secretary/file/personalFile.html',
+            controllerUrl: '/app/views/Secretary/file/personalFileController.js',
+            params: {
+                personal: {}
+            }
+        }))
         .state('doBook', angularAMD.route({
             url: '/doBook',
             title: 'سرویس‌ها',

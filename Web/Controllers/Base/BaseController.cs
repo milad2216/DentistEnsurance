@@ -3,7 +3,6 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 using Web.Infra;
 using Web.ViewModel;
 
@@ -30,15 +29,15 @@ namespace Web.Controllers.Base
             base.Dispose(disposing);
         }
 
-
-        public HttpResponseMessage Create(TModel model)
+        [HttpPost]
+        public virtual HttpResponseMessage Create(TModel model)
         {
             var result = Service.Create(model);
             return MyResult(new ResultStructure(result));
         }
 
-
-        public HttpResponseMessage Edit(TModel model)
+        [HttpPut]
+        public virtual HttpResponseMessage Edit(TModel model)
         {
             var result = Service.Edit(model);
             return MyResult(new ResultStructure(result));

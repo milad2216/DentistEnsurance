@@ -11,7 +11,8 @@
         Success = 0,
         Error = 1,
         Exception = 2,
-        ValidationError = 3
+        ValidationError = 3,
+        AccessDenid = 4
     }
     public enum UserType
     {
@@ -25,5 +26,14 @@
     {
         Single = 0,
         Married = 1
+    }
+
+    public enum EducationLevel
+    {
+        Diploma = 0,
+        Associate = 1,
+        Bachelor = 2,
+        Master = 3,
+        PhD = 4
     }
 }

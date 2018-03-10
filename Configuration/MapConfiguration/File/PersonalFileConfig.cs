@@ -19,6 +19,7 @@ namespace Configuration.MapConfiguration.File
             Property(p => p.FileNo).HasMaxLength(50).IsRequired();
             Property(p => p.SpecialDisease).HasMaxLength(200);
             Property(p => p.InsuranceType).HasMaxLength(100);
+            Property(p => p.MedicalAlert).HasMaxLength(300);
             HasMany(p => p.TreatmentPlans).WithOptional().HasForeignKey(WFS => WFS.FileId);
             HasMany(p => p.TreatmentDescriptions).WithOptional().HasForeignKey(WFS => WFS.FileId);
         }

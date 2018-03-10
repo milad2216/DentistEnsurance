@@ -19,6 +19,7 @@ namespace Configuration.MapConfiguration.File
             Property(p => p.Date).IsRequired();
             Property(p => p.Description).HasMaxLength(500);
             Property(p => p.Cost).IsRequired();
+            Property(p => p.Remainder).IsRequired();
         }
     }
 }

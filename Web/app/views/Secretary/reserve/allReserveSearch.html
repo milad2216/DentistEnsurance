@@ -1,0 +1,16 @@
+﻿<div class="margin-right-50">
+    <div class="row col-md-11 margin-top-10">
+        <div class="col-md-4">
+            <label class="label">انتخاب تاریخ</label>
+            <input kendo-date-picker
+                   ng-model="ReserveDate"
+                   k-options="kendoDateOptions" />
+
+        </div>
+    </div>
+    <div class="row col-md-11 margin-top-10">
+        <div>
+            <div class="k-rtl" kendo-grid="kendoGrid" k-ng-delay="mainGridOptions" options="mainGridOptions"></div>
+        </div>
+    </div>
+</div>

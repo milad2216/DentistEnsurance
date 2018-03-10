@@ -169,8 +169,10 @@
     <Content Include="app\views\Secretary\notBooked\doBookController.js" />
     <Content Include="app\views\Secretary\notBooked\notBookedSearch.html" />
     <Content Include="app\views\Secretary\notBooked\notBookedSearchController.js" />
-    <Content Include="app\views\Secretary\personel\personelSearch.html" />
-    <Content Include="app\views\Secretary\personel\personelSearchController.js" />
+    <Content Include="app\views\Secretary\personal\personalSearch.html" />
+    <Content Include="app\views\Secretary\personal\personalSearchController.js" />
+    <Content Include="app\views\Secretary\reserve\allReserveSearch.html" />
+    <Content Include="app\views\Secretary\reserve\allReserveSearchController.js" />
     <Content Include="app\views\userSubSys\personController.js" />
     <Content Include="app\views\userSubSys\profileController.js" />
     <Content Include="app\directive\login.js" />
@@ -693,6 +695,7 @@
     <Content Include="Scripts\bower\kendo\kendo.validator.min.js" />
     <Content Include="Scripts\bower\kendo\kendo.view.min.js" />
     <Content Include="Scripts\bower\kendo\kendo.virtuallist.min.js" />
+    <Content Include="Scripts\bower\kendo\kendo.web.js" />
     <Content Include="Scripts\bower\kendo\kendo.web.min.js" />
     <Content Include="Scripts\bower\kendo\kendo.webcomponents.min.js" />
     <Content Include="Scripts\bower\kendo\kendo.window.min.js" />
@@ -724,6 +727,9 @@
     <Compile Include="Controllers\Base\BaseIntController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\Duties\ReserveController.cs" />
+    <Compile Include="Controllers\File\PersonalFileController.cs" />
+    <Compile Include="Controllers\File\TreatmentDescriptionController.cs" />
+    <Compile Include="Controllers\File\TreatmentPlanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
@@ -753,6 +759,9 @@
     <Compile Include="ViewModel\AccessControl\UserViewModel.cs" />
     <Compile Include="ViewModel\BaseIntViewModel.cs" />
     <Compile Include="ViewModel\Duties\ReserveViewModel.cs" />
+    <Compile Include="ViewModel\File\PersonalFileViewModel.cs" />
+    <Compile Include="ViewModel\File\TreatmentDescriptionViewModel.cs" />
+    <Compile Include="ViewModel\File\TreatmentPlanViewModel.cs" />
     <Compile Include="ViewModel\IBaseViewModel.cs" />
     <Compile Include="ViewModel\Duties\DutyViewModel.cs" />
   </ItemGroup>

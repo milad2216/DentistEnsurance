@@ -63,6 +63,12 @@
     <Compile Include="Base\IBaseRepository.cs" />
     <Compile Include="Base\impl\BaseIntRepository.cs" />
     <Compile Include="Base\impl\BaseRepository.cs" />
+    <Compile Include="File\Impl\PersonalFileRepository.cs" />
+    <Compile Include="File\Impl\TreatmentDescriptionRepository.cs" />
+    <Compile Include="File\Impl\TreatmentPlanRepository.cs" />
+    <Compile Include="File\IPersonalFileRepository.cs" />
+    <Compile Include="File\ITreatmentDescriptionRepository.cs" />
+    <Compile Include="File\ITreatmentPlanRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Duties\impl\ReserveRepository.cs" />
     <Compile Include="Duties\impl\DutyRepository.cs" />

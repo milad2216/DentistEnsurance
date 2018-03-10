@@ -17,8 +17,8 @@ namespace Entity.Duties
         [EnumDataType(typeof(ReserveStatusEnum), ErrorMessage = "مقدار وضعیت رزرو اشتباه است")]
         public ReserveStatusEnum Status { get; set; }
         public string RequestMessage { get; set; }
-        public bool Reported { get; set; } = false;
-        public DateTime? TurnDateTime { get; set; }
+        public DateTime? TurnDate { get; set; }
+        public TimeSpan? TurnTime { get; set; }
         public virtual Personal Personal { get; set; }
         public virtual Duty Duty { get; set; }
         public virtual User User { get; set; }

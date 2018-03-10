@@ -13,7 +13,7 @@ namespace Web.Controllers.Base
         where TService : IBaseService<TModel>
     {
 
-        [HttpPost]
+        [HttpDelete]
         public virtual HttpResponseMessage Delete(int id)
         {
             var result = ((IBaseIntService<TModel>)Service).Delete(id);

@@ -4,7 +4,7 @@ using Entity;
 
 namespace Service.Base.impl
 {
-    public abstract class BaseIntService<TModel, TRepositoryType> : BaseService<TModel, TRepositoryType>, IBaseIntService<TModel> where TRepositoryType : IBaseIntRepository<TModel> 
+    public abstract class BaseIntService<TModel, TRepositoryType> : BaseService<TModel, TRepositoryType>, IBaseIntService<TModel> where TRepositoryType : Repository.Base.IBaseIntRepository<TModel> 
         where TModel : BaseEntityClass
     {
         protected BaseIntService(TRepositoryType repository) : base(repository)

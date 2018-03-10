@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using Entity.AccessControl;
+using Entity.File;
 using System;
+using System.Collections.Generic;
 using Web.Infra;
+using Web.ViewModel.File;
 
 namespace Web.ViewModel.AccessControl
 {
@@ -15,6 +18,7 @@ namespace Web.ViewModel.AccessControl
         public String Relation { get; set; }
         public String NationalNo { get; set; }
         public String Unit { get; set; }
+        public virtual ICollection<PersonalFileViewModel> Files { get; set; }
 
         public String FullName
         {

@@ -11,7 +11,6 @@
                             { Desc: "تایید نشده", uiSref: "reserveSearch({status:2})", Class: "glyphicon-trash" },
                             { Desc: "انجام شده", uiSref: "reserveSearch({status:3})", Class: "glyphicon-share" }     ,               
                             { Desc: "لغو شده", uiSref: "reserveSearch({status:4})", Class: "glyphicon-share" },
-                            { Desc: "اعتبار", uiSref: "reserveSearch({status:4})", Class: "glyphicon-credit-card" },
                 ];
                 return menu;
             },
@@ -30,8 +29,8 @@
 
             var menu = [
                         { Desc: "در انتظار نوبت", uiSref: "notBookedSearch", Class: "glyphicon-inbox" },
-                        { Desc: "رزرو شده", uiSref: "bookedSearch", Class: "glyphicon-inbox" },
-                        { Desc: "انجام شده", uiSref: "doneSearch", Class: "glyphicon-share" }
+                        { Desc: "پرونده", uiSref: "personalSearch", Class: "glyphicon-inbox" },
+                        { Desc: "نوبت ها", uiSref: "allReserveSearch", Class: "glyphicon-share" }
             ];
             return menu;
         },

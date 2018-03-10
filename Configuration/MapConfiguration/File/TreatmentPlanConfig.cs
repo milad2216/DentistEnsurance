@@ -17,7 +17,7 @@ namespace Configuration.MapConfiguration.File
             HasKey(t => t.ID);
             Property(t => t.ID).HasColumnName("ID").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p => p.Date).IsRequired();
-            Property(p => p.Description).HasMaxLength(500);
+            Property(p => p.Description).HasMaxLength(500).IsRequired();
             Property(p => p.Cost).IsRequired();
         }
     }

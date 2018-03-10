@@ -33,11 +33,19 @@ namespace Web.Controllers.Duties
 
             return MyResult(new ResultStructure { status = ResultCode.Success, data = dataSourceResult });
         }
+        public HttpResponseMessage GetAllReserves([FromUri]QueryInfo query)
+        {
+            var dataSourceResult = Service.GetAll().Include(x => x.Personal).Include(x => x.Duty).Where(p => p.Status == ReserveStatusEnum.Reserved && (p.TurnTime != null && p.TurnDate != null)).OrderByDescending(p => p.ID).ToMyDataSourceResult(query).ToViewModel<ReserveViewModel>(query);
+
+            //result = result.Skip(skip).Take(take);
+
+            return MyResult(new ResultStructure { status = ResultCode.Success, data = dataSourceResult });
+        }
 
         [HttpPost]
         public HttpResponseMessage Cancel(Reserve model)
         {
-            if (!model.Reported)
+            if (model.TurnTime == null)
             {
                 var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { Status = ReserveStatusEnum.Canceled });
                 if (res > 0)
@@ -51,14 +59,14 @@ namespace Web.Controllers.Duties
             }
             else
             {
-                return MyResult(new ResultStructure { status = ResultCode.Error, message = "مورد انتخاب شده به مالی معرفی شده و قابل لغو نمیباشد." });
+                return MyResult(new ResultStructure { status = ResultCode.Error, message = "مورد انتخاب شده نوبت دهی شده است برای لغو با کلینیک تماس بگیرید." });
             }
         }
 
         public HttpResponseMessage GetNotBooked([FromUri]QueryInfo query)
         {
             var dataSourceResult = Service.GetAll().Include(x => x.Personal).Include(x => x.Duty)
-                .Where(p => p.Status == ReserveStatusEnum.Reserved && p.TurnDateTime == null).OrderByDescending(p => p.ID)
+                .Where(p => p.Status == ReserveStatusEnum.Reserved && p.TurnDate == null).OrderByDescending(p => p.ID)
                 .ToMyDataSourceResult(query).ToViewModel<ReserveViewModel>(query);
 
 
@@ -74,7 +82,7 @@ namespace Web.Controllers.Duties
         [HttpPost]
         public HttpResponseMessage SaveTurn(Reserve model)
         {
-            var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { TurnDateTime = model.TurnDateTime });
+            var res = Service.UpdateExp(p => p.ID == model.ID, u => new Reserve { TurnDate = model.TurnDate, TurnTime = model.TurnTime });
             if (res > 0)
             {
                 return MyResult(new ResultStructure { status = ResultCode.Success, message = "با موفقیت ذخیره شد." });

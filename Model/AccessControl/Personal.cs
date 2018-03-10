@@ -3,6 +3,7 @@ using Entity.Duties;
 using Entity.File;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.AccessControl
@@ -23,10 +24,12 @@ namespace Entity.AccessControl
         public string NationalNo { get; set; }
         public string Unit { get; set; }
         public string FatherName { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string Job { get; set; }
-        public string Education { get; set; }
-        public MaritalStatus MaritalStatus { get; set; }
+        [EnumDataType(typeof(EducationLevel), ErrorMessage = "مقدار مدرک تحصیلی اشتباه است")]
+        public EducationLevel? Education { get; set; }
+        [EnumDataType(typeof(MaritalStatus), ErrorMessage = "مقدار وضعیت تاهل اشتباه است")]
+        public MaritalStatus? MaritalStatus { get; set; }
         public string HomeAddress { get; set; }
         public string WorkAddress { get; set; }
         public string HomePhone { get; set; }

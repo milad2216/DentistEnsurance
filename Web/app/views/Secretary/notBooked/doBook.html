@@ -23,15 +23,19 @@
         </div>
     </div>
     <div class="row col-md-10 margin-top-10">
-        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <!--<label class="label">انتخاب زمان نوبت</label>-->
+            <input kendo-date-picker
+                   ng-model="ReserveDate"
+                   k-options="kendoDateOptions" />
+
+        </div>
         <div class="col-md-4">
 
-            <label class="label">انتخاب زمان نوبت</label>
-            <input kendo-date-time-picker
-                   ng-model="ReserveDateTime"
-                   k-options="kendoDateTimeOptions"
+            <input kendo-time-picker
+                   ng-model="ReserveTime"
                    style="width: 100%;" />
-
         </div>
     </div>
     <div class="col-xs-12 margin-top-50">
@@ -49,7 +53,7 @@
         margin-right: 10px;
     }
 
-    .margin-top-50{
-        margin-top:50px !important;
+    .margin-top-50 {
+        margin-top: 50px !important;
     }
 </style>

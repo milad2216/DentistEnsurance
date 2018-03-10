@@ -20,6 +20,8 @@ namespace Entity.File
 
         public long Remainder { get; set; }
 
+        public bool Reported { get; set; }
+
         public virtual PersonalFile File { get; set; }
     }
 }

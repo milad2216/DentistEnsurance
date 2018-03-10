@@ -15,7 +15,7 @@
             return er;
         }
         var DispatchReponse = function (response) {
-            if (response.status == 0) {
+            if (response.status === 0) {
                 response["data"].message = response.message;
                 return response["data"];
             } else
@@ -71,6 +71,7 @@
                 blockUI.start();
                 var deferred = $q.defer();
                 var then = this;
+                debugger;
                 $http.post(url, data, {
                     headers: {
                         'Content-Type': 'application/json'

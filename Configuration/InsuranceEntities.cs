@@ -6,6 +6,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Entity.AccessControl;
 using Entity.Duties;
+using Entity.File;
 
 namespace Configuration
 {
@@ -30,6 +31,9 @@ namespace Configuration
         public virtual DbSet<Duty> Duties { get; set; }
         public virtual DbSet<Reserve> Reserves { get; set; }
         public virtual DbSet<UserPayment> UserPayments { get; set; }
+        public virtual DbSet<PersonalFile> PersonalFiles { get; set; }
+        public virtual DbSet<TreatmentPlan> TreatmentPlans { get; set; }
+        public virtual DbSet<TreatmentDescription> TreatmentDescriptions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -1,1 +1,101 @@
-﻿
+﻿<form name="PersonalFileForm" class="margin-right-50">
+    <div class="row col-md-11 margin-top-10">
+        <div class="col-md-6">
+            <label class="label">شماره پرونده</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-file">
+                    </i>
+                </div>
+                <input name="LastName" type="text" placeholder="شماره پرونده" class="form-control input-md" ng-model="file.FileNo" value="{{file.FileNo}}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="label">بیماری خاص</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-key">
+                    </i>
+                </div>
+                <input type="text" placeholder="بیماری خاص" class="form-control input-md" ng-model="file.SpecialDisease" value="{{file.SpecialDisease}}">
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-11 margin-top-10">
+        <div class="col-md-4">
+            <label class="label">نوع بیمه</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-sticky-note">
+                    </i>
+                </div>
+                <input type="text" placeholder="نوع بیمه" class="form-control input-md" ng-model="file.InsuranceType" value="{{file.InsuranceType}}">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <label class="label">نکات پزشکی</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-warning">
+                    </i>
+                </div>
+                <input type="text" placeholder="نکات پزشکی" class="form-control input-md" ng-model="file.MedicalAlert" value="{{file.MedicalAlert}}">
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-11 margin-top-10">
+        <div class="col-md-12">
+            <label class="label">توضیحات</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-pencil">
+                    </i>
+                </div>
+                <textarea type="text" placeholder="توصیحات" rows="5" class="form-control input-md" ng-model="file.Description" value="{{file.Description}}"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-11 margin-top-10">
+        <button type="submit" class="btn btn-primary center-block" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>
+<div class="margin-right-50">
+    <div class="row col-md-11 margin-top-10">
+        <label class="label">طرح درمان</label>
+
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-group">
+                </i>
+            </div>
+            <div class="k-rtl form-control input-md" kendo-grid="kendoGrid" k-ng-delay="mainGridOptions" options="mainGridOptions"></div>
+        </div>
+    </div>
+    <div class="row col-md-11 margin-top-10">
+        <label class="label">درمان های انجام شده</label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-group">
+                </i>
+            </div>
+            <div class="k-rtl form-control input-md" kendo-grid="kendoGrid" k-ng-delay="treatmentDescriptionGridOptions" options="treatmentDescriptionGridOptions"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .margin-right-50 {
+        margin-right: 50px !important;
+    }
+
+    .label {
+        float: right;
+        color: #5a5a5a;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .btn-primary {
+        background-color: #919191;
+        border-color: #919191;
+    }
+</style>

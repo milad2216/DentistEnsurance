@@ -42,7 +42,8 @@ define(['app'], function (app) {
                             UserId: { type: "number", defaultValue: null },
                             Status: { type: "number", defaultValue: null },
                             RequestMessage: { type: "string", editable: false },
-                            Reported: { type: "boolean", editable: false },
+                            TurnDate: { type: "date", editable: false, defaultValue:"داده نشده" },
+                            TurnTime: { type: "time", editable: false, defaultValue: "داده نشده" },
                             Personal: { defaultValue: {} },
                             PersonalFirstName: { from: "Personal.FirstName", type: "string", editable: false, nullable: true },
                             PersonalLastName: { from: "Personal.LastName", type: "string", editable: false, nullable: true },
@@ -136,6 +137,13 @@ define(['app'], function (app) {
             };
             if ($scope.status == 0 || $scope.status == 1) {
                 $scope.mainGridOptions.columns.push({
+                    field: "TurnDate",
+                    title: "تاریخ نوبت",
+                    template: "#= moment(TurnDate).format('jYYYY/jMM/jDD')#",
+                }, {
+                    field: "TurnTime",
+                    title: "زمان نوبت"
+                }, {
                     command:
                         {
                             text: "لغو", click: $scope.cancelReserve

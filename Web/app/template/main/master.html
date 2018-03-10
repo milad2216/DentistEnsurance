@@ -16,10 +16,10 @@
                     <li><a ng-click="logoff()"><i class="glyphicon glyphicon-off"></i>خروج </a></li>
                 </ul>
             </li>
-            <li class="active menu-page"><a href="/home">صفحه اصلی</a></li>
-            <li class="active menu-page"><a href="#">جستجوی</a></li>
+            <!--<li class="active menu-page"><a href="/home">صفحه اصلی</a></li>
+            <li class="active menu-page"><a href="#">جستجوی</a></li>-->
             <li class="menu-page"><a ui-sref="duties">خدمات</a></li>
-            <li class="menu-page"><a href="#about">گزارشات</a></li>
+            <!--<li class="menu-page"><a href="#about">گزارشات</a></li>-->
             <!--<li class="item-position">
                 <span class="yekan13" style="color:#fff;margin-left:5px;">اعتبار: </span>
                 <div class="btn-group">
@@ -128,7 +128,7 @@
     </div>
     <div class="content">
         <div class="content-widget-header">{{applicationModule}}</div>
-        <div class="cantent-view" ui-view style="<!--background-color:#acacac;--> height:600px;">
+        <div class="cantent-view" ui-view style=" height:600px; overflow-x:hidden;">
             <div ng-transclude></div>
         </div>
     </div>
